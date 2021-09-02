@@ -3,27 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
 		52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */; };
-		52B76C6E26E0EEF700A9394A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6D26E0EEF700A9394A /* ViewController.swift */; };
 		52B76C7126E0EEF700A9394A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C6F26E0EEF700A9394A /* Main.storyboard */; };
 		52B76C7326E0EEF800A9394A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C7226E0EEF800A9394A /* Assets.xcassets */; };
 		52B76C7626E0EEF800A9394A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C7426E0EEF800A9394A /* LaunchScreen.storyboard */; };
+		52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FC726E159A500E5E32E /* DiscoverViewController.swift */; };
+		52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */; };
+		AF741957BC278E0D40FEE986 /* Pods_PocketBarmen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.release.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.release.xcconfig"; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B76C6926E0EEF700A9394A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52B76C6D26E0EEF700A9394A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52B76C7026E0EEF700A9394A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52B76C7226E0EEF800A9394A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B76C7526E0EEF800A9394A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52B76C7726E0EEF800A9394A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B95FC726E159A500E5E32E /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketBarmen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.debug.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF741957BC278E0D40FEE986 /* Pods_PocketBarmen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				52B76C6826E0EEF700A9394A /* PocketBarmen */,
 				52B76C6726E0EEF700A9394A /* Products */,
+				65A4800A166A74ACFED8E16D /* Pods */,
+				F634E4C2F7B2B516DC0518D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +65,65 @@
 		52B76C6826E0EEF700A9394A /* PocketBarmen */ = {
 			isa = PBXGroup;
 			children = (
-				52B76C6926E0EEF700A9394A /* AppDelegate.swift */,
-				52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */,
-				52B76C6D26E0EEF700A9394A /* ViewController.swift */,
-				52B76C6F26E0EEF700A9394A /* Main.storyboard */,
+				52B95FD026E16EDC00E5E32E /* StoryBoards */,
+				52B95FCF26E16EC700E5E32E /* System */,
+				52B95FCE26E16EB300E5E32E /* ViewController */,
+				52B95FCD26E16EA600E5E32E /* ViewModel */,
 				52B76C7226E0EEF800A9394A /* Assets.xcassets */,
-				52B76C7426E0EEF800A9394A /* LaunchScreen.storyboard */,
-				52B76C7726E0EEF800A9394A /* Info.plist */,
 			);
 			path = PocketBarmen;
+			sourceTree = "<group>";
+		};
+		52B95FCD26E16EA600E5E32E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52B95FCE26E16EB300E5E32E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52B95FC726E159A500E5E32E /* DiscoverViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		52B95FCF26E16EC700E5E32E /* System */ = {
+			isa = PBXGroup;
+			children = (
+				52B76C7726E0EEF800A9394A /* Info.plist */,
+				52B76C6926E0EEF700A9394A /* AppDelegate.swift */,
+				52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		52B95FD026E16EDC00E5E32E /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				52B76C6F26E0EEF700A9394A /* Main.storyboard */,
+				52B76C7426E0EEF800A9394A /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		65A4800A166A74ACFED8E16D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */,
+				4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F634E4C2F7B2B516DC0518D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B76C7A26E0EEF800A9394A /* Build configuration list for PBXNativeTarget "PocketBarmen" */;
 			buildPhases = (
+				51E9E4C3E36AA29E4EB0F335 /* [CP] Check Pods Manifest.lock */,
 				52B76C6226E0EEF700A9394A /* Sources */,
 				52B76C6326E0EEF700A9394A /* Frameworks */,
 				52B76C6426E0EEF700A9394A /* Resources */,
+				B78D87BC1DA67EF89F3A21FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,12 +193,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51E9E4C3E36AA29E4EB0F335 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketBarmen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B78D87BC1DA67EF89F3A21FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52B76C6226E0EEF700A9394A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B76C6E26E0EEF700A9394A /* ViewController.swift in Sources */,
+				52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */,
+				52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */,
 				52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */,
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
 			);
@@ -283,12 +387,13 @@
 		};
 		52B76C7B26E0EEF800A9394A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TU72QMAMTH;
-				INFOPLIST_FILE = PocketBarmen/Info.plist;
+				INFOPLIST_FILE = PocketBarmen/System/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,12 +408,13 @@
 		};
 		52B76C7C26E0EEF800A9394A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TU72QMAMTH;
-				INFOPLIST_FILE = PocketBarmen/Info.plist;
+				INFOPLIST_FILE = PocketBarmen/System/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

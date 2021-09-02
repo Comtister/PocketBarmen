@@ -1,0 +1,6 @@
+framework module Pods_PocketBarmen {
+  umbrella header "Pods-PocketBarmen-umbrella.h"
+
+  export *
+  module * { export * }
+}
