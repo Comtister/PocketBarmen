@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */; };
+		523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */; };
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
 		52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */; };
 		52B76C7126E0EEF700A9394A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C6F26E0EEF700A9394A /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.release.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.release.xcconfig"; sourceTree = "<group>"; };
+		523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B76C6926E0EEF700A9394A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		52B76C6826E0EEF700A9394A /* PocketBarmen */ = {
 			isa = PBXGroup;
 			children = (
+				52B95FD826E1781700E5E32E /* View */,
 				52B95FD026E16EDC00E5E32E /* StoryBoards */,
 				52B95FCF26E16EC700E5E32E /* System */,
 				52B95FCE26E16EB300E5E32E /* ViewController */,
@@ -107,6 +112,15 @@
 				52B76C7426E0EEF800A9394A /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		52B95FD826E1781700E5E32E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */,
+				523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		65A4800A166A74ACFED8E16D /* Pods */ = {
@@ -185,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */,
 				52B76C7626E0EEF800A9394A /* LaunchScreen.storyboard in Resources */,
 				52B76C7326E0EEF800A9394A /* Assets.xcassets in Resources */,
 				52B76C7126E0EEF700A9394A /* Main.storyboard in Resources */,
@@ -241,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */,
+				523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */,
 				52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */,
 				52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */,
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
