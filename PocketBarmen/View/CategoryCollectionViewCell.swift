@@ -19,7 +19,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickAction))
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleClickAnim))
         
         self.addGestureRecognizer(tapGesture)
         
@@ -34,13 +34,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 5
     }
     
-    @objc func clickAction(){
+    @objc func handleClickAnim(){
         
-        let firstHalf = UIViewPropertyAnimator(duration: 0.2, curve: .linear) {
+        let firstHalf = UIViewPropertyAnimator(duration: 0.1, curve: .linear) {
             self.alpha = 0.5
         }
         
-        let secondHalf = UIViewPropertyAnimator(duration: 0.2, curve: .linear) {
+        let secondHalf = UIViewPropertyAnimator(duration: 0.1, curve: .linear) {
             self.alpha = 1.0
         }
         

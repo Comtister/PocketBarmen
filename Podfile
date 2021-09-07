@@ -9,5 +9,6 @@ target 'PocketBarmen' do
 
 	pod 'RxSwift', '6.2.0'
     	pod 'RxCocoa', '6.2.0'
+	pod 'Alamofire', '~> 5.2'
 
 end
