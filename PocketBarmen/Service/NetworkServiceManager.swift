@@ -16,13 +16,15 @@ class NetworkServiceManager {
         
     }
     
-    func request<T : Codable>(request : NetRequestModel , completion : @escaping (Result<T,Error>) -> Void) throws{
+    func sendRequest<T : Codable>(request : NetRequestModel , completion : @escaping (Result<T,Error>) -> Void) throws{
         
         try! AF.request(request: request).validate(statusCode: 200...300).response(completionHandler: { (response) in
             
             switch response.result{
             
             case .success(let data) :
+                let object = NetResponseModel<T>(data: data!)
+                completion(Result.success(object.object!))
                 break
             case .failure(let error) :
                 break

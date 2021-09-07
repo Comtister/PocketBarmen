@@ -9,6 +9,6 @@ import Foundation
 
 struct CategoryResponse : Codable {
     
-    var drinks : [String]
+    var drinks : [Category]
     
 }

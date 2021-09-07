@@ -39,26 +39,6 @@ class DiscoverViewController: UIViewController {
         
         collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         
-        let model = CategoryRequestModel()
-        do{
-            try! NetworkServiceManager.shared.request(request: model) { (result : Result<CategoryResponse,Error>) in
-                 print(result)
-             }
-        }catch{
-            
-        }
-       
-        
-        
-        /*
-        do{
-        try AF.request(request: model).response { (response) in
-            debugPrint(response)
-        }
-        }catch{
-            print(errno)
-        }*/
-        
         
     }
     

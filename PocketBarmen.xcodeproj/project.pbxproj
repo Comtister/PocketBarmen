@@ -13,6 +13,7 @@
 		522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A8526E7F62900FF8E54 /* NetworkServiceManager.swift */; };
 		522D6A9226E7FD5700FF8E54 /* NetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */; };
 		522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */; };
+		522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9D26E8123D00FF8E54 /* Category.swift */; };
 		523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */; };
 		523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */; };
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		522D6A8526E7F62900FF8E54 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
 		522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponseModel.swift; sourceTree = "<group>"; };
 		522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
+		522D6A9D26E8123D00FF8E54 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */,
 				522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */,
 				522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */,
+				522D6A9D26E8123D00FF8E54 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
 				522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */,
 				522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */,
+				522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
