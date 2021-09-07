@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522D6A7A26E7A26F00FF8E54 /* Session+GenericRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */; };
+		522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A7E26E7A32900FF8E54 /* NetRequestModel.swift */; };
+		522D6A8226E7BE1B00FF8E54 /* CategoryRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */; };
+		522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A8526E7F62900FF8E54 /* NetworkServiceManager.swift */; };
+		522D6A9226E7FD5700FF8E54 /* NetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */; };
+		522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */; };
 		523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */; };
 		523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */; };
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
@@ -21,6 +27,12 @@
 
 /* Begin PBXFileReference section */
 		4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.release.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.release.xcconfig"; sourceTree = "<group>"; };
+		522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+GenericRequest.swift"; sourceTree = "<group>"; };
+		522D6A7E26E7A32900FF8E54 /* NetRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetRequestModel.swift; sourceTree = "<group>"; };
+		522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRequestModel.swift; sourceTree = "<group>"; };
+		522D6A8526E7F62900FF8E54 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
+		522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponseModel.swift; sourceTree = "<group>"; };
+		522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +60,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522D6A7826E7A14B00FF8E54 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		522D6A7D26E7A30600FF8E54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				522D6A7E26E7A32900FF8E54 /* NetRequestModel.swift */,
+				522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */,
+				522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */,
+				522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		522D6A8426E7F61900FF8E54 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				522D6A8526E7F62900FF8E54 /* NetworkServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		52B76C5D26E0EEF700A9394A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +108,9 @@
 		52B76C6826E0EEF700A9394A /* PocketBarmen */ = {
 			isa = PBXGroup;
 			children = (
+				522D6A8426E7F61900FF8E54 /* Service */,
+				522D6A7D26E7A30600FF8E54 /* Model */,
+				522D6A7826E7A14B00FF8E54 /* Extension */,
 				52B95FD826E1781700E5E32E /* View */,
 				52B95FD026E16EDC00E5E32E /* StoryBoards */,
 				52B95FCF26E16EC700E5E32E /* System */,
@@ -255,11 +297,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522D6A9226E7FD5700FF8E54 /* NetResponseModel.swift in Sources */,
 				52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */,
 				523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */,
 				52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */,
 				52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */,
+				522D6A7A26E7A26F00FF8E54 /* Session+GenericRequest.swift in Sources */,
+				522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */,
+				522D6A8226E7BE1B00FF8E54 /* CategoryRequestModel.swift in Sources */,
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
+				522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */,
+				522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

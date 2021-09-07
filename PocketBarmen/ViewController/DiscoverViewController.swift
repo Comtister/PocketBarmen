@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DiscoverViewController: UIViewController {
 
@@ -21,7 +22,7 @@ class DiscoverViewController: UIViewController {
     }
     
     private func setupCategoryCollectionView(){
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -37,6 +38,26 @@ class DiscoverViewController: UIViewController {
         let nib = UINib(nibName: "CategoryCollectionViewCell", bundle: Bundle.main)
         
         collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        
+        let model = CategoryRequestModel()
+        do{
+            try! NetworkServiceManager.shared.request(request: model) { (result : Result<CategoryResponse,Error>) in
+                 print(result)
+             }
+        }catch{
+            
+        }
+       
+        
+        
+        /*
+        do{
+        try AF.request(request: model).response { (response) in
+            debugPrint(response)
+        }
+        }catch{
+            print(errno)
+        }*/
         
         
     }
