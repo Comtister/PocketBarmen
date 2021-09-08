@@ -7,18 +7,56 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 class DiscoverViewController: UIViewController {
 
     @IBOutlet var collectionView : UICollectionView!
+    @IBOutlet var indicatorView : UIActivityIndicatorView!
     
-    private var categories : [String] = ["Test","Test","Test","Test","Test","Test"]
+    private var viewModel : DiscoverViewModel!
+    private var disposeBag : DisposeBag!
+    
+    private var categories : CategoryResponse!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        indicatorView.hidesWhenStopped = true
+        
         setupCategoryCollectionView()
-       
+        
+        disposeBag = DisposeBag()
+        
+        viewModel = DiscoverViewModel()
+        observeValues()
+        viewModel.getCategories()
+        
+    }
+    
+    private func observeValues(){
+        //Category data binding
+        viewModel.categories.subscribe(onNext:{ [weak self] categories in
+            self?.updateCollection(categories: categories)
+        },onError: { [weak self] error in
+            self?.showAlertDialog()
+        }).disposed(by: disposeBag)
+            
+        //Loading State binding
+        viewModel.loadingState.subscribe(onNext:{ [weak self] state in
+            if state{
+                self?.indicatorView.startAnimating()
+                return
+            }
+            self?.indicatorView.stopAnimating()
+        }).disposed(by: disposeBag)
+        
+    }
+    
+    private func updateCollection(categories : CategoryResponse){
+        self.categories = categories
+        collectionView.reloadData()
     }
     
     private func setupCategoryCollectionView(){
@@ -54,19 +92,27 @@ class DiscoverViewController: UIViewController {
         
     }
     
+    private func showAlertDialog(){
+        let alertController = UIAlertController(title: "Oops", message: "A error has occurred.Data could not be retrieved.Restart App", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 extension DiscoverViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return (categories != nil) ? categories.drinks.count : 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CategoryCollectionViewCell{
             
-            cell.categoryLbl.text = "Alchol Coctail"
+            cell.categoryLbl.text = categories.drinks[indexPath.row].name
             
             return cell
         }

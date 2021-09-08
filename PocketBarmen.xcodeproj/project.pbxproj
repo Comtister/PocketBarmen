@@ -16,6 +16,8 @@
 		522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9D26E8123D00FF8E54 /* Category.swift */; };
 		523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */; };
 		523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */; };
+		529D5DDE26E9065C00AA4AF7 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D5DDD26E9065B00AA4AF7 /* NetworkMonitor.swift */; };
+		529D5DE226E90C3E00AA4AF7 /* Name+NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */; };
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
 		52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */; };
 		52B76C7126E0EEF700A9394A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C6F26E0EEF700A9394A /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		522D6A9D26E8123D00FF8E54 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		529D5DDD26E9065B00AA4AF7 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Name+NotificationName.swift"; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B76C6926E0EEF700A9394A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */,
+				529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -90,6 +95,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		529D5DDC26E9064700AA4AF7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				529D5DDD26E9065B00AA4AF7 /* NetworkMonitor.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		52B76C5D26E0EEF700A9394A = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +124,7 @@
 		52B76C6826E0EEF700A9394A /* PocketBarmen */ = {
 			isa = PBXGroup;
 			children = (
+				529D5DDC26E9064700AA4AF7 /* Utility */,
 				522D6A8426E7F61900FF8E54 /* Service */,
 				522D6A7D26E7A30600FF8E54 /* Model */,
 				522D6A7826E7A14B00FF8E54 /* Extension */,
@@ -309,8 +323,10 @@
 				522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */,
 				522D6A8226E7BE1B00FF8E54 /* CategoryRequestModel.swift in Sources */,
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
+				529D5DDE26E9065C00AA4AF7 /* NetworkMonitor.swift in Sources */,
 				522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */,
 				522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */,
+				529D5DE226E90C3E00AA4AF7 /* Name+NotificationName.swift in Sources */,
 				522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
