@@ -28,7 +28,11 @@ class NetworkMonitor{
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [weak self] path in
            
-            self?.isConnected = path.status == .satisfied
+            if path.status == .satisfied{
+                self?.isConnected = true
+            }else{
+                self?.isConnected = false
+            }
             
             let networkStateNotification = Notification(name: Notification.Name.NetworkStateNotification,userInfo: ["state" : self?.isConnected])
             NotificationCenter.default.post(networkStateNotification)

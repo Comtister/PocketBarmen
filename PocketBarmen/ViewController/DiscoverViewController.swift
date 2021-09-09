@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import RxSwift
 
 class DiscoverViewController: UIViewController {
@@ -19,7 +18,6 @@ class DiscoverViewController: UIViewController {
     
     private var categories : CategoryResponse!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,27 +29,37 @@ class DiscoverViewController: UIViewController {
         
         viewModel = DiscoverViewModel()
         observeValues()
-        viewModel.getCategories()
+        getDatas()
+    }
+     
+    private func observeValues(){
+        
+        viewModel.loadingState.subscribe(onNext:{ [weak self] state in
+            state == true ? self?.indicatorView.startAnimating() : self?.indicatorView.stopAnimating()
+        }).disposed(by: disposeBag)
+
+        viewModel.networkState.subscribe(onNext:{ state in
+            //Test Real Device
+        }).disposed(by: disposeBag)
         
     }
     
-    private func observeValues(){
-        //Category data binding
-        viewModel.categories.subscribe(onNext:{ [weak self] categories in
-            self?.updateCollection(categories: categories)
-        },onError: { [weak self] error in
-            self?.showAlertDialog()
-        }).disposed(by: disposeBag)
+    private func getDatas(){
+        viewModel.getCategories().subscribe { [weak self] (response) in
+            self?.updateCollection(categories: response)
+        } onFailure: { [weak self] (error) in
+            let error = error as! NetworkServiceError
             
-        //Loading State binding
-        viewModel.loadingState.subscribe(onNext:{ [weak self] state in
-            if state{
-                self?.indicatorView.startAnimating()
-                return
+            switch error{
+            case .NetworkError :
+                self?.showAlertDialog(message: NetworkErrString)
+                break
+            case .ServerError :
+                self?.showAlertDialog(message: ServerErrString)
+                break
             }
-            self?.indicatorView.stopAnimating()
-        }).disposed(by: disposeBag)
-        
+            
+        }.disposed(by: disposeBag)
     }
     
     private func updateCollection(categories : CategoryResponse){
@@ -92,10 +100,12 @@ class DiscoverViewController: UIViewController {
         
     }
     
-    private func showAlertDialog(){
-        let alertController = UIAlertController(title: "Oops", message: "A error has occurred.Data could not be retrieved.Restart App", preferredStyle: .alert)
+    private func showAlertDialog(message : String){
+        let alertController = UIAlertController(title: "Oops", message: message, preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: { [weak self] _ in
+            self?.getDatas()
+        }))
         
         self.present(alertController, animated: true, completion: nil)
     }

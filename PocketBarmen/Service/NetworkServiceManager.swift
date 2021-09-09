@@ -10,6 +10,7 @@ import Alamofire
 
 class NetworkServiceManager {
     
+    
     static let shared : NetworkServiceManager = NetworkServiceManager()
     private var session : Session!
     
@@ -21,7 +22,7 @@ class NetworkServiceManager {
         
     }
     
-    func sendRequest<T : Codable>(request : NetRequestModel , completion : @escaping (Result<T,Error>) -> Void) throws{
+    func sendRequest<T : Codable>(request : NetRequestModel , completion : @escaping (Result<T,NetworkServiceError>) -> Void) throws{
         
         try! session.request(request: request).validate(statusCode: 200...300).response(queue:.global(qos: .userInitiated),completionHandler: { (response) in
             
@@ -35,7 +36,8 @@ class NetworkServiceManager {
                 break
             case .failure(let error) :
                 print(error)
-                completion(Result.failure(error))
+                let generalizedError = error.responseCode == nil ? NetworkServiceError.NetworkError : NetworkServiceError.ServerError
+                completion(Result.failure(generalizedError))
                 break
             }
             
