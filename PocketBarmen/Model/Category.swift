@@ -9,15 +9,16 @@ import Foundation
 
 struct Category : Codable{
     
-    var name : String
+    let name : String
     
     enum CodingKeys : String, CodingKey{
         case name = "strCategory"
     }
     
+    /*
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
-    }
+    }*/
     
 }
