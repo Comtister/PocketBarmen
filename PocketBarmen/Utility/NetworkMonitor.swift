@@ -34,7 +34,7 @@ class NetworkMonitor{
                 self?.isConnected = false
             }
             
-            let networkStateNotification = Notification(name: Notification.Name.NetworkStateNotification,userInfo: ["state" : self?.isConnected])
+            let networkStateNotification = Notification(name: Notification.Name.NetworkStateNotification,userInfo: ["state" : self?.isConnected as Any])
             NotificationCenter.default.post(networkStateNotification)
             
         }

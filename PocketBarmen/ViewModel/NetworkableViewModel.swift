@@ -12,7 +12,7 @@ class NetworkableViewModel{
     
     private var _networkState : PublishSubject<Bool>
     
-    var networkState : Observable<Bool>{
+    final var networkState : Observable<Bool>{
         return _networkState
     }
     
@@ -23,7 +23,7 @@ class NetworkableViewModel{
     
     private func listenNetworkStatus(){
         NotificationCenter.default.addObserver(forName: .NetworkStateNotification, object: nil, queue: nil) { [weak self] (notification) in
-            let userInfo = notification.userInfo as! [String : Bool]
+            guard let userInfo = notification.userInfo as? [String : Bool] else {return}
             self?._networkState.onNext(userInfo["state"]!)
             
         }

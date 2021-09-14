@@ -8,33 +8,16 @@
 import Foundation
 import RxSwift
 
-class DiscoverViewModel{
+class DiscoverViewModel : NetworkableViewModel{
     
     private var _loadingState : PublishSubject<Bool>
-    private var _networkState : PublishSubject<Bool>
     
     var loadingState : Observable<Bool>{
         return _loadingState
     }
-    
-    var networkState : Observable<Bool>{
-        return _networkState
-    }
-    
-    
-  
-    init() {
+   
+    override init() {
         self._loadingState = PublishSubject<Bool>()
-        self._networkState = PublishSubject<Bool>()
-        listenNetworkStatus()
-    }
-    
-    private func listenNetworkStatus(){
-        NotificationCenter.default.addObserver(forName: .NetworkStateNotification, object: nil, queue: nil) { [weak self] (notification) in
-            let userInfo = notification.userInfo as! [String : Bool]
-            self?._networkState.onNext(userInfo["state"]!)
-            
-        }
     }
     
     func getCategories() -> Single<CategoryResponse>{
@@ -51,11 +34,9 @@ class DiscoverViewModel{
                         case .success(let response) :
                             single(.success(response))
                             self?._loadingState.onNext(false)
-                            break
                         case .failure(let error) :
                             single(.failure(error))
                             self?._loadingState.onNext(false)
-                            break
                         }
                     }
                 })

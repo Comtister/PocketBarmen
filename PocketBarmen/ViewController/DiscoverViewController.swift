@@ -17,10 +17,10 @@ class DiscoverViewController: UIViewController {
     private var disposeBag : DisposeBag!
     
     private var categories : CategoryResponse!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         indicatorView.hidesWhenStopped = true
         
         setupCategoryCollectionView()
@@ -31,7 +31,7 @@ class DiscoverViewController: UIViewController {
         observeValues()
         getDatas()
     }
-     
+    
     private func observeValues(){
         
         viewModel.loadingState.subscribe(onNext:{ [weak self] state in
@@ -40,6 +40,7 @@ class DiscoverViewController: UIViewController {
 
         viewModel.networkState.subscribe(onNext:{ state in
             //Test Real Device
+            print("Change status \(state)")
         }).disposed(by: disposeBag)
         
     }
@@ -48,15 +49,13 @@ class DiscoverViewController: UIViewController {
         viewModel.getCategories().subscribe { [weak self] (response) in
             self?.updateCollection(categories: response)
         } onFailure: { [weak self] (error) in
-            let error = error as! NetworkServiceError
+            guard let error = error as? NetworkServiceError else {return}
             
             switch error{
             case .NetworkError :
                 self?.showAlertDialog(message: NetworkErrString)
-                break
             case .ServerError :
                 self?.showAlertDialog(message: ServerErrString)
-                break
             }
             
         }.disposed(by: disposeBag)

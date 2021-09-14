@@ -26,9 +26,13 @@ class NetworkServiceManager {
             switch response.result{
             
             case .success(let data) :
+                guard let data = data else { completion(Result.failure(NetworkServiceError.NetworkError)) ; return }
                 
-                let object = NetResponseModel<T>(data: data!)
-                completion(Result.success(object.object!))
+                let responseModel = NetResponseModel<T>(data: data)
+                
+                guard let object = responseModel.object else {completion(Result.failure(NetworkServiceError.NetworkError)) ; return}
+                
+                completion(Result.success(object))
                 
             case .failure(let error) :
                 print(error)
