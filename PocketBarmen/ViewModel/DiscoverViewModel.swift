@@ -26,8 +26,7 @@ class DiscoverViewModel : NetworkableViewModel{
             let disposable = Disposables.create()
             self?._loadingState.onNext(true)
             
-            do{
-                try NetworkServiceManager.shared.sendRequest(request: CategoryRequestModel(), completion: { (result : Result<CategoryResponse,NetworkServiceError>) in
+                NetworkServiceManager.shared.sendRequest(request: CategoryRequestModel(), completion: { (result : Result<CategoryResponse,NetworkServiceError>) in
                     
                     DispatchQueue.main.async {
                         switch result{
@@ -40,12 +39,7 @@ class DiscoverViewModel : NetworkableViewModel{
                         }
                     }
                 })
-            }catch{
-                DispatchQueue.main.async {
-                    single(.failure(error))
-                    self?._loadingState.onNext(false)
-                }
-            }
+            
             return disposable
         }
         

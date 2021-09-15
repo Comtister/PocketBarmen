@@ -7,5 +7,11 @@
 
 import Foundation
 
-let NetworkErrString = "Connection error no internet connection"
-let ServerErrString = "An error has occured"
+struct Constants {
+    
+   static let NetworkErrString = "Connection error no internet connection"
+   static let ServerErrString = "An error has occured"
+    
+}
+
+

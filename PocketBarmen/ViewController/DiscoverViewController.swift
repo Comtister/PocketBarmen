@@ -13,10 +13,10 @@ class DiscoverViewController: UIViewController {
     @IBOutlet var collectionView : UICollectionView!
     @IBOutlet var indicatorView : UIActivityIndicatorView!
     
-    private var viewModel : DiscoverViewModel!
-    private var disposeBag : DisposeBag!
+    private var viewModel : DiscoverViewModel = DiscoverViewModel()
+    private var disposeBag : DisposeBag = DisposeBag()
     
-    private var categories : CategoryResponse!
+    private var categories : CategoryResponse?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,6 @@ class DiscoverViewController: UIViewController {
         
         setupCategoryCollectionView()
         
-        disposeBag = DisposeBag()
-        
-        viewModel = DiscoverViewModel()
         observeValues()
         getDatas()
     }
@@ -53,9 +50,9 @@ class DiscoverViewController: UIViewController {
             
             switch error{
             case .NetworkError :
-                self?.showAlertDialog(message: NetworkErrString)
+                self?.showAlertDialog(message: Constants.NetworkErrString)
             case .ServerError :
-                self?.showAlertDialog(message: ServerErrString)
+                self?.showAlertDialog(message: Constants.ServerErrString)
             }
             
         }.disposed(by: disposeBag)
@@ -114,16 +111,21 @@ class DiscoverViewController: UIViewController {
 extension DiscoverViewController : UICollectionViewDelegate , UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (categories != nil) ? categories.drinks.count : 0
+        
+        return categories?.drinks.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CategoryCollectionViewCell{
             
-            cell.categoryLbl.text = categories.drinks[indexPath.row].name
+            if let categories = categories{
+                cell.categoryLbl.text = categories.drinks[indexPath.row].name
+                
+                return cell
+            }
             
-            return cell
         }
         
         return UICollectionViewCell()
