@@ -12,6 +12,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet var drinkImage : UIImageView!
     @IBOutlet var drinkTitle : UILabel!
     @IBOutlet var drinkDesc : UILabel!
+    @IBOutlet var indicator : UIActivityIndicatorView!
     @IBOutlet private var wrapperView : UIView!
     
     override func awakeFromNib() {

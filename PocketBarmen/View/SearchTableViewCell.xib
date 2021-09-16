@@ -39,14 +39,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tiJ-Om-D9o">
+                                <rect key="frame" x="30" y="25" width="20" height="20"/>
+                                <color key="color" name="MainBrass"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="CategoryCellColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Uw8-RO-C2J" secondAttribute="bottom" constant="16" id="2uX-Le-FI0"/>
+                            <constraint firstItem="tiJ-Om-D9o" firstAttribute="centerY" secondItem="HVu-7C-WWI" secondAttribute="centerY" id="6j4-zB-03S"/>
                             <constraint firstItem="yhz-4r-QVK" firstAttribute="leading" secondItem="HVu-7C-WWI" secondAttribute="trailing" constant="8" symbolic="YES" id="76B-QA-nUc"/>
                             <constraint firstItem="Uw8-RO-C2J" firstAttribute="leading" secondItem="HVu-7C-WWI" secondAttribute="trailing" constant="8" symbolic="YES" id="Ngu-Mi-Dsk"/>
                             <constraint firstItem="HVu-7C-WWI" firstAttribute="centerY" secondItem="Nfa-uy-a6H" secondAttribute="centerY" id="WQM-tD-hPo"/>
                             <constraint firstItem="HVu-7C-WWI" firstAttribute="leading" secondItem="Nfa-uy-a6H" secondAttribute="leading" constant="8" id="jfh-oO-41e"/>
+                            <constraint firstItem="tiJ-Om-D9o" firstAttribute="centerX" secondItem="HVu-7C-WWI" secondAttribute="centerX" id="rn9-Mz-h8V"/>
                             <constraint firstItem="yhz-4r-QVK" firstAttribute="top" secondItem="Nfa-uy-a6H" secondAttribute="top" constant="8" id="tsj-Dv-MVo"/>
                         </constraints>
                     </view>
@@ -63,6 +69,7 @@
                 <outlet property="drinkDesc" destination="Uw8-RO-C2J" id="9jj-0T-LpS"/>
                 <outlet property="drinkImage" destination="HVu-7C-WWI" id="2d5-vB-xHb"/>
                 <outlet property="drinkTitle" destination="yhz-4r-QVK" id="kKH-tN-jV8"/>
+                <outlet property="indicator" destination="tiJ-Om-D9o" id="gTU-vf-6Gy"/>
                 <outlet property="wrapperView" destination="Nfa-uy-a6H" id="MsJ-ON-vfl"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="81.696428571428569"/>
@@ -71,6 +78,9 @@
     <resources>
         <namedColor name="CategoryCellColor">
             <color red="0.91764705882352937" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MainBrass">
+            <color red="0.70588235294117652" green="0.58823529411764708" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -12,7 +12,8 @@ struct CocktailSummary : Codable {
     var id : String
     var drinkName : String
     var type : String
-    var imageUrl : String
+    var imageUrl : URL
+    var imageDownloadingState : Bool = false
     
     enum CodingKeys : String , CodingKey{
         case id = "idDrink"
@@ -20,5 +21,7 @@ struct CocktailSummary : Codable {
         case type = "strAlcoholic"
         case imageUrl = "strDrinkThumb"
     }
+    
+    
     
 }

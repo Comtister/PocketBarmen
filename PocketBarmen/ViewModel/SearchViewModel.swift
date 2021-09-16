@@ -61,4 +61,10 @@ class SearchViewModel: NetworkableViewModel {
         }
     }
     
+    func setImages(){
+        
+        
+        
+    }
+    
 }

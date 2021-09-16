@@ -11,4 +11,8 @@ struct SearchResponse : Codable {
     
     var drinks : [CocktailSummary]
     
+    init() {
+        self.drinks = [CocktailSummary]()
+    }
+    
 }

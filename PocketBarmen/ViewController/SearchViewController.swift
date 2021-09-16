@@ -100,8 +100,13 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchTableViewCell{
        
-            cell.drinkTitle.text = viewModel.currentData?.drinks[indexPath.row].drinkName
+            let cocktail = viewModel.currentData?.drinks[indexPath.row]
+            
+            cell.drinkTitle.text = cocktail?.drinkName
           
+            
+            
+            
             return cell
         }
         return UITableViewCell()
