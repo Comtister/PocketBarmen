@@ -247,6 +247,8 @@
 			dependencies = (
 			);
 			name = PocketBarmen;
+			packageProductDependencies = (
+			);
 			productName = PocketBarmen;
 			productReference = 52B76C6626E0EEF700A9394A /* PocketBarmen.app */;
 			productType = "com.apple.product-type.application";
@@ -274,6 +276,8 @@
 				Base,
 			);
 			mainGroup = 52B76C5D26E0EEF700A9394A;
+			packageReferences = (
+			);
 			productRefGroup = 52B76C6726E0EEF700A9394A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

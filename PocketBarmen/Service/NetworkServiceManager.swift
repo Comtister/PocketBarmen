@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import Kingfisher
 
 class NetworkServiceManager {
     
@@ -47,6 +48,33 @@ class NetworkServiceManager {
         }
         
        
+    }
+    
+    func imageRequest(url : URL , completion : @escaping (Result<Data,Error>) -> Void){
+        
+        let cache = ImageCache(name: "SearchListImageCache")
+        cache.memoryStorage.config.totalCostLimit = 30 * 1024 * 1024
+        cache.diskStorage.config.sizeLimit = 300 * 1024 * 1024
+        
+        let source = Source.network(ImageResource(downloadURL: url))
+        
+        //print(cache.diskStorage.directoryURL)
+        let _ = KingfisherManager.shared.retrieveImage(with: source , options: [.targetCache(cache)]) { (result) in
+            
+            switch result{
+            case .success(let image) :
+                print()
+                guard let imageData = image.image.jpegData(compressionQuality: 0) else {completion(Result.failure(NetworkServiceError.ServerError)) ; return}
+                print("Girdi")
+                completion(Result.success(imageData))
+            case .failure(let error) :
+                completion(Result.failure(error))
+                break
+            }
+            
+        }
+        
+        
     }
     
 }

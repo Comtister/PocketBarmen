@@ -43,11 +43,16 @@ class SearchViewController: UIViewController {
             //Test Real Device
         }).disposed(by: disposeBag)
         
-        
+        //Filtre zinciri denenecek
         viewModel.cocktails.subscribe(onNext:{ [weak self] response in
             self?.tableView.reloadData()
         },onError : { error in
             print(error)
+        }).disposed(by: disposeBag)
+        
+        viewModel.imageStatus.subscribe(onNext:{ [weak self] indexPath in
+            
+            self?.tableView.reloadRows(at: [indexPath], with: .none)
         }).disposed(by: disposeBag)
         
     }
@@ -93,19 +98,24 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.currentData?.drinks.count ?? 0
+        return viewModel.currentData.drinks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchTableViewCell{
        
-            let cocktail = viewModel.currentData?.drinks[indexPath.row]
+            let cocktail = viewModel.currentData.drinks[indexPath.row]
             
-            cell.drinkTitle.text = cocktail?.drinkName
+            cell.drinkTitle.text = cocktail.drinkName
+            //cell.drinkImage.image = cocktail.image
           
-            
-            
+            if !cocktail.imageDownloadingState{
+                viewModel.setImage(cocktailSum: cocktail , indexPath: indexPath)
+                cell.indicator.startAnimating()
+            }else{
+                cell.indicator.stopAnimating()
+            }
             
             return cell
         }
@@ -113,7 +123,7 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
     }
     
     private func isLoading(indexPath : IndexPath) -> Bool{
-        guard let count = viewModel.currentData?.drinks.count else {return false}
+        let count = viewModel.currentData.drinks.count
         return indexPath.row >= count - 1
     }
     

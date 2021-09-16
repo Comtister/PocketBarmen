@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct CocktailSummary : Codable {
     
@@ -14,6 +15,15 @@ struct CocktailSummary : Codable {
     var type : String
     var imageUrl : URL
     var imageDownloadingState : Bool = false
+    var image : UIImage? = nil
+    var imageData : Data?{
+        set{
+            image = UIImage(data: newValue!)
+        }
+        get{
+            return image?.pngData()
+        }
+    }
     
     enum CodingKeys : String , CodingKey{
         case id = "idDrink"
@@ -21,7 +31,5 @@ struct CocktailSummary : Codable {
         case type = "strAlcoholic"
         case imageUrl = "strDrinkThumb"
     }
-    
-    
-    
+        
 }
