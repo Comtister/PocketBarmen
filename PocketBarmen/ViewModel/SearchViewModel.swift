@@ -76,7 +76,7 @@ class SearchViewModel: NetworkableViewModel {
         }
         
         downloadingImages[indexPath] = cocktailSum
-        NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageUrl) { [weak self] (result) in
+        NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageDownloadUrl) { [weak self] (result) in
            
             switch result{
             case .success(let data) :

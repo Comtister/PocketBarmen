@@ -14,6 +14,12 @@ struct CocktailSummary : Codable {
     var drinkName : String
     var type : String
     var imageUrl : URL
+    var imageDownloadUrl : URL{
+        get{
+            let url = imageUrl.appendingPathComponent("/preview")
+            return url
+        }
+    }
     var imageDownloadingState : Bool = false
     var image : UIImage? = nil
     var imageData : Data?{

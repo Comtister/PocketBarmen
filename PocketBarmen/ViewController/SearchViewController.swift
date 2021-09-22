@@ -108,7 +108,7 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
             let cocktail = viewModel.currentData.drinks[indexPath.row]
             
             cell.drinkTitle.text = cocktail.drinkName
-            //cell.drinkImage.image = cocktail.image
+            cell.drinkImage.image = cocktail.image
           
             if !cocktail.imageDownloadingState{
                 viewModel.setImage(cocktailSum: cocktail , indexPath: indexPath)
