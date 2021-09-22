@@ -23,6 +23,7 @@ class SearchTableViewCell: UITableViewCell {
         backgroundConfiguration = backConfig
         
         wrapperView.layer.cornerRadius = 10
+        drinkImage.layer.cornerRadius = 10
         
     }
     
