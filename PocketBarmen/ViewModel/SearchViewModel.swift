@@ -59,6 +59,7 @@ class SearchViewModel: NetworkableViewModel {
                         self?._cocktails.onNext(currentData)
                         self?._loadingState.onNext(false)
                         self?.alphabetIndex += 1
+                        print(self?.alphabetIndex)
                         break
                     case.failure(let error) :
                         self?._cocktails.onError(error)
@@ -71,29 +72,26 @@ class SearchViewModel: NetworkableViewModel {
     
     func setImage(cocktailSum : CocktailSummary , indexPath : IndexPath){
         
-        guard downloadingImages[indexPath] == nil else {
-            return
-        }
-        
-        downloadingImages[indexPath] = cocktailSum
-        NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageDownloadUrl) { [weak self] (result) in
-           
-            switch result{
-            case .success(let data) :
-                
-                self?.downloadingImages.removeValue(forKey: indexPath)
-                self?.currentData.drinks[indexPath.row].imageData = data
-                self?.currentData.drinks[indexPath.row].imageDownloadingState = true
-                self?._imageStatus.onNext(indexPath)
-                //Handle onNext
-                print(data)
-            case .failure(let error) :
-                print("Burada \(error)")
+        DispatchQueue.global(qos: .userInitiated).async {
+            NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageDownloadUrl) { [weak self] (result) in
+               
+                switch result{
+                case .success(let data) :
+                    
+                    self?.currentData.drinks[indexPath.row].imageData = data
+                    self?.currentData.drinks[indexPath.row].imageDownloadingState = true
+                    self?._imageStatus.onNext(indexPath)
+                    //Handle onNext
+                    //print(data)
+                case .failure(let error) :
+                    print("Burada \(error)")
+                    
+                }
                 
             }
-            
         }
-        
+            
     }
+    
     
 }

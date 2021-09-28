@@ -17,43 +17,14 @@ class SearchViewController: UIViewController {
     private let viewModel : SearchViewModel = SearchViewModel()
     private let disposeBag : DisposeBag = DisposeBag()
     
+    var state : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
         observeValues()
         getCocktails()
-        
-    }
-    
-    private func getCocktails(){
-        
-        viewModel.getCocktails()
-        
-    }
-    
-    private func observeValues(){
-        
-        viewModel.loadingState.subscribe(onNext:{ [weak self] state in
-            state == true ? self?.indicator.startAnimating() : self?.indicator.stopAnimating()
-        }).disposed(by: disposeBag)
-        
-        
-        viewModel.networkState.subscribe(onNext:{ state in
-            //Test Real Device
-        }).disposed(by: disposeBag)
-        
-        //Filtre zinciri denenecek
-        viewModel.cocktails.subscribe(onNext:{ [weak self] response in
-            self?.tableView.reloadData()
-        },onError : { error in
-            print(error)
-        }).disposed(by: disposeBag)
-        
-        viewModel.imageStatus.subscribe(onNext:{ [weak self] indexPath in
-            
-            self?.tableView.reloadRows(at: [indexPath], with: .none)
-        }).disposed(by: disposeBag)
         
     }
     
@@ -69,8 +40,35 @@ class SearchViewController: UIViewController {
         tableView.register(tableCellNib, forCellReuseIdentifier: "SearchCell")
     }
     
-    private func updateTableView(data : SearchResponse){
-        tableView.reloadData()
+    private func getCocktails(){
+        
+        viewModel.getCocktails()
+        
+    }
+    
+    private func observeValues(){
+        
+        viewModel.loadingState.subscribe(onNext:{ [weak self] state in
+            state == true ? self?.indicator.startAnimating() : self?.indicator.stopAnimating()
+        }).disposed(by: disposeBag)
+        
+        viewModel.networkState.subscribe(onNext:{ state in
+            //Test Real Device
+        }).disposed(by: disposeBag)
+        
+        //Filtre zinciri denenecek
+        viewModel.cocktails.subscribe(onNext:{ [weak self] response in
+            self?.tableView.reloadData()
+        },onError : { error in
+            print(error)
+        }).disposed(by: disposeBag)
+        
+        viewModel.imageStatus.subscribe(onNext:{ [weak self] indexPath in
+            
+            //self?.tableView.reloadData()
+            //self?.tableView.reloadRows(at: [indexPath], with: .none)
+        }).disposed(by: disposeBag)
+        
     }
     
     private func showAlertDialog(message : String){
@@ -93,7 +91,6 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
         if indexPaths.contains(where: isLoading(indexPath:)){
             viewModel.getCocktails()
         }
-        
     }
     
     
@@ -104,23 +101,24 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchTableViewCell{
-       
-            let cocktail = viewModel.currentData.drinks[indexPath.row]
             
+            let cocktail = viewModel.currentData.drinks[indexPath.row]
             cell.drinkTitle.text = cocktail.drinkName
-            cell.drinkImage.image = cocktail.image
-          
+            print("\(cell.drinkTitle.text) ,,, \(indexPath)")
             if !cocktail.imageDownloadingState{
-                viewModel.setImage(cocktailSum: cocktail , indexPath: indexPath)
+                //print("\(cell.drinkTitle.text) ,,, \(indexPath) ,,,\(cell)")
                 cell.indicator.startAnimating()
+                viewModel.setImage(cocktailSum: cocktail , indexPath: indexPath)
             }else{
                 cell.indicator.stopAnimating()
+                cell.drinkImage.image = cocktail.image
             }
             
             return cell
         }
         return UITableViewCell()
     }
+    
     
     private func isLoading(indexPath : IndexPath) -> Bool{
         let count = viewModel.currentData.drinks.count
