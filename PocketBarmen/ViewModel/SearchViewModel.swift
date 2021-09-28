@@ -12,7 +12,6 @@ class SearchViewModel: NetworkableViewModel {
     
     private var _cocktails : PublishSubject<SearchResponse>
     private var _loadingState : PublishSubject<Bool>
-    private var _imageStatus : PublishSubject<IndexPath>
     
     var cocktails : Observable<SearchResponse>{
         return _cocktails
@@ -22,22 +21,15 @@ class SearchViewModel: NetworkableViewModel {
         return _loadingState
     }
     
-    var imageStatus : Observable<IndexPath>{
-        return _imageStatus
-    }
-    
     var currentData : SearchResponse = SearchResponse()
     
     let alphabetSequence : [Character] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","v","w","y","z"]
     
     var alphabetIndex = 0
     
-    var downloadingImages : [IndexPath : CocktailSummary] = [:]
-    
     override init() {
         self._cocktails = PublishSubject<SearchResponse>()
         self._loadingState = PublishSubject<Bool>()
-        self._imageStatus = PublishSubject<IndexPath>()
     }
     
     func getCocktails(){
@@ -47,45 +39,66 @@ class SearchViewModel: NetworkableViewModel {
         }
         
         self._loadingState.onNext(true)
-        NetworkServiceManager.shared.sendRequest(request: CocktailsRequestModel(character: alphabetSequence[alphabetIndex])) { (result : Result<SearchResponse,NetworkServiceError>) in
+        NetworkServiceManager.shared.sendRequest(request: CocktailsRequestModel(character: alphabetSequence[alphabetIndex])) { [weak self] (result : Result<SearchResponse,NetworkServiceError>) in
             
-            DispatchQueue.main.async { [weak self] in
-                switch result{
-                    case .success(let response) :
-                        self?.alphabetIndex == 0 ? self?.currentData = response : self?.currentData.drinks.append(contentsOf: response.drinks)
+            switch result{
+                case .success(let response) :
+                    self?.alphabetIndex == 0 ? self?.currentData = response : self?.currentData.drinks.append(contentsOf: response.drinks)
+                    
+                    guard let currentData = self?.currentData else {return}
+                    
+                    let imageDispatchGroup = DispatchGroup()
+                    
+                    for (index , drink) in currentData.drinks.enumerated(){
                         
-                        guard let currentData = self?.currentData else {return}
+                        if drink.imageDownloadingState{
+                            continue
+                        }
                         
+                        imageDispatchGroup.enter()
+                        self?.getImage(cocktailSum: drink , completion: { (result) in
+                            switch result{
+                            case .success(let data) :
+                                print(index)
+                                self?.currentData.drinks[index].imageData = data
+                                self?.currentData.drinks[index].imageDownloadingState = true
+                                break
+                            case .failure(let error) :
+                                break
+                            }
+                            imageDispatchGroup.leave()
+                        })
+                    }
+                    
+                    imageDispatchGroup.wait()
+                    
+                    DispatchQueue.main.async {
                         self?._cocktails.onNext(currentData)
                         self?._loadingState.onNext(false)
                         self?.alphabetIndex += 1
-                        print(self?.alphabetIndex)
-                        break
-                    case.failure(let error) :
+                    }
+                    
+                case.failure(let error) :
+                    DispatchQueue.main.async {
                         self?._cocktails.onError(error)
                         self?._loadingState.onNext(false)
-                        break
-                }
+                    }
             }
+        
         }
     }
     
-    func setImage(cocktailSum : CocktailSummary , indexPath : IndexPath){
+    private func getImage(cocktailSum : CocktailSummary , completion : @escaping (Result<Data,Error>) -> Void){
         
         DispatchQueue.global(qos: .userInitiated).async {
-            NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageDownloadUrl) { [weak self] (result) in
+            NetworkServiceManager.shared.imageRequest(url: cocktailSum.imageDownloadUrl) {(result) in
                
                 switch result{
                 case .success(let data) :
-                    
-                    self?.currentData.drinks[indexPath.row].imageData = data
-                    self?.currentData.drinks[indexPath.row].imageDownloadingState = true
-                    self?._imageStatus.onNext(indexPath)
-                    //Handle onNext
-                    //print(data)
+                    completion(Result.success(data))
                 case .failure(let error) :
                     print("Burada \(error)")
-                    
+                    completion(Result.failure(error))
                 }
                 
             }

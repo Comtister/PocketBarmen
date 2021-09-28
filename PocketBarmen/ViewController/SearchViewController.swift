@@ -58,15 +58,11 @@ class SearchViewController: UIViewController {
         
         //Filtre zinciri denenecek
         viewModel.cocktails.subscribe(onNext:{ [weak self] response in
+            print("burda")
             self?.tableView.reloadData()
         },onError : { error in
+            //Handle error
             print(error)
-        }).disposed(by: disposeBag)
-        
-        viewModel.imageStatus.subscribe(onNext:{ [weak self] indexPath in
-            
-            //self?.tableView.reloadData()
-            //self?.tableView.reloadRows(at: [indexPath], with: .none)
         }).disposed(by: disposeBag)
         
     }
@@ -93,7 +89,6 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.currentData.drinks.count
     }
@@ -104,21 +99,12 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
             
             let cocktail = viewModel.currentData.drinks[indexPath.row]
             cell.drinkTitle.text = cocktail.drinkName
-            print("\(cell.drinkTitle.text) ,,, \(indexPath)")
-            if !cocktail.imageDownloadingState{
-                //print("\(cell.drinkTitle.text) ,,, \(indexPath) ,,,\(cell)")
-                cell.indicator.startAnimating()
-                viewModel.setImage(cocktailSum: cocktail , indexPath: indexPath)
-            }else{
-                cell.indicator.stopAnimating()
-                cell.drinkImage.image = cocktail.image
-            }
-            
+            cell.drinkImage.image = cocktail.image
+            print(cell.drinkImage.image)
             return cell
         }
         return UITableViewCell()
     }
-    
     
     private func isLoading(indexPath : IndexPath) -> Bool{
         let count = viewModel.currentData.drinks.count
