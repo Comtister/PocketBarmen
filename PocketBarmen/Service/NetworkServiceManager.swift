@@ -29,11 +29,11 @@ class NetworkServiceManager {
                 
                 case .success(let data) :
                    
-                    guard let data = data else { completion(Result.failure(NetworkServiceError.NetworkError)) ; return }
+                    guard let data = data else { completion(Result.failure(NetworkServiceError.DataNotValid)) ; return }
                     
                     let responseModel = NetResponseModel<T>(data: data)
                     
-                    guard let object = responseModel.object else {completion(Result.failure(NetworkServiceError.NetworkError)) ; return}
+                    guard let object = responseModel.object else {completion(Result.failure(NetworkServiceError.DataParsingError)) ; return}
                     
                     completion(Result.success(object))
                     

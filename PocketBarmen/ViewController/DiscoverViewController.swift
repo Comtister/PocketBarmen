@@ -53,6 +53,8 @@ class DiscoverViewController: UIViewController {
                 self?.showAlertDialog(message: Constants.NetworkErrString)
             case .ServerError :
                 self?.showAlertDialog(message: Constants.ServerErrString)
+            case .DataNotValid , .DataParsingError :
+                break
             }
             
         }.disposed(by: disposeBag)

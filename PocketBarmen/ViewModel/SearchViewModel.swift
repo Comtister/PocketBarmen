@@ -22,10 +22,14 @@ class SearchViewModel: NetworkableViewModel {
     }
     
     var currentData : SearchResponse = SearchResponse()
+    var temporaryData : SearchResponse? = SearchResponse()
     
     let alphabetSequence : [Character] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","v","w","y","z"]
     
-    var alphabetIndex = 0
+    var alphabetIndex : Int = 0
+    
+    var searchState : Bool = false
+    var searchOperations : [String :DispatchWorkItem] = [String : DispatchWorkItem]()
     
     override init() {
         self._cocktails = PublishSubject<SearchResponse>()
@@ -47,35 +51,12 @@ class SearchViewModel: NetworkableViewModel {
                     
                     guard let currentData = self?.currentData else {return}
                     
-                    let imageDispatchGroup = DispatchGroup()
-                    
-                    for (index , drink) in currentData.drinks.enumerated(){
-                        
-                        if drink.imageDownloadingState{
-                            continue
+                    self?.fillPhotos {
+                        DispatchQueue.main.async {
+                            self?._cocktails.onNext(currentData)
+                            self?._loadingState.onNext(false)
+                            self?.alphabetIndex += 1
                         }
-                        
-                        imageDispatchGroup.enter()
-                        self?.getImage(cocktailSum: drink , completion: { (result) in
-                            switch result{
-                            case .success(let data) :
-                                print(index)
-                                self?.currentData.drinks[index].imageData = data
-                                self?.currentData.drinks[index].imageDownloadingState = true
-                                break
-                            case .failure(let error) :
-                                break
-                            }
-                            imageDispatchGroup.leave()
-                        })
-                    }
-                    
-                    imageDispatchGroup.wait()
-                    
-                    DispatchQueue.main.async {
-                        self?._cocktails.onNext(currentData)
-                        self?._loadingState.onNext(false)
-                        self?.alphabetIndex += 1
                     }
                     
                 case.failure(let error) :
@@ -97,13 +78,146 @@ class SearchViewModel: NetworkableViewModel {
                 case .success(let data) :
                     completion(Result.success(data))
                 case .failure(let error) :
-                    print("Burada \(error)")
                     completion(Result.failure(error))
                 }
                 
             }
         }
             
+    }
+    
+    private func fillPhotos(completion : @escaping () -> Void){
+        let imageDispatchGroup = DispatchGroup()
+        
+        for (index , drink) in currentData.drinks.enumerated(){
+            
+            if drink.imageDownloadingState{
+                continue
+            }
+            
+            imageDispatchGroup.enter()
+            getImage(cocktailSum: drink , completion: { [weak self] (result) in
+                switch result{
+                case .success(let data) :
+                    self?.currentData.drinks[index].imageData = data
+                    self?.currentData.drinks[index].imageDownloadingState = true
+                    break
+                case .failure(let error) :
+                    //Handle Error
+                    break
+                }
+                imageDispatchGroup.leave()
+            })
+        }
+        
+        imageDispatchGroup.wait()
+        completion()
+    }
+    
+    func searchCocktail(searchText : String){
+        
+        let operationID = UUID().uuidString
+        
+        let searchWork = DispatchWorkItem { [weak self] in
+            
+            let request = SearchRequest(searchText: searchText)
+            
+            self?._loadingState.onNext(true)
+            NetworkServiceManager.shared.sendRequest(request: request) { [weak self] (result : Result<SearchResponse,NetworkServiceError>) in
+                
+                guard let operationItem = self?.searchOperations[operationID] , !operationItem.isCancelled else{
+                    print("cancelled")
+                    return
+                }
+                
+                switch result{
+                case .success(let response) :
+                   
+                    guard let searchState = self?.searchState else {return}
+                    guard let currentData = self?.currentData else {return}
+                    
+                    if !searchState{
+                        self?.temporaryData = currentData
+                    }
+                    
+                    self?.searchState = true
+                    self?.currentData = response
+                    print("fuck")
+                    self?.fillPhotos {
+                        DispatchQueue.main.async {
+                            self?._cocktails.onNext(currentData)
+                            self?._loadingState.onNext(false)
+                        }
+                    }
+                case .failure(let error) :
+                    print(error)
+                    DispatchQueue.main.async {
+                        guard let currentData = self?.currentData else {return}
+                        self?.temporaryData = currentData
+                        self?.currentData = SearchResponse()
+                        self?._cocktails.onNext(currentData)
+                        self?._loadingState.onNext(false)
+                    }
+                }
+                
+            }
+        }
+        
+        if searchText.isEmpty{
+            searchOperations.forEach { (ID , dispatchItem) in
+                dispatchItem.cancel()
+            }
+            print("Boşta")
+            currentData = temporaryData ?? SearchResponse()//Handle state
+            temporaryData = nil
+            searchState = false
+            print("\(searchState) \(searchWork.isCancelled)")
+            //searchOperations.removeAll()
+            _cocktails.onNext(currentData)
+            return
+        }
+        
+        searchOperations[operationID] = searchWork
+        searchWork.perform()
+        
+        /*
+        let request = SearchRequest(searchText: searchText)
+        
+        self._loadingState.onNext(true)
+        NetworkServiceManager.shared.sendRequest(request: request) { [weak self] (result : Result<SearchResponse,NetworkServiceError>) in
+            
+            switch result{
+            case .success(let response) :
+               
+                guard let searchState = self?.searchState else {return}
+                guard let currentData = self?.currentData else {return}
+                
+                if !searchState{
+                    self?.temporaryData = currentData
+                }
+                
+                self?.searchState = true
+                self?.currentData = response
+                
+                self?.fillPhotos {
+                    DispatchQueue.main.async {
+                        self?._cocktails.onNext(currentData)
+                        self?._loadingState.onNext(false)
+                    }
+                }
+            case .failure(let error) :
+                print(error)
+                DispatchQueue.main.async {
+                    guard let currentData = self?.currentData else {return}
+                    self?.temporaryData = currentData
+                    self?.currentData = SearchResponse()
+                    self?._cocktails.onNext(currentData)
+                    self?._loadingState.onNext(false)
+                }
+            }
+            
+        }*/
+        
     }
     
     

@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkServiceError : Error{
-    case NetworkError , ServerError
+    case NetworkError , ServerError , DataNotValid , DataParsingError
 }
+
 

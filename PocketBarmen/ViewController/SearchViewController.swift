@@ -17,12 +17,11 @@ class SearchViewController: UIViewController {
     private let viewModel : SearchViewModel = SearchViewModel()
     private let disposeBag : DisposeBag = DisposeBag()
     
-    var state : Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
+        setupSeacrhBar()
         observeValues()
         getCocktails()
         
@@ -38,6 +37,10 @@ class SearchViewController: UIViewController {
         let tableCellNib = UINib(nibName: "SearchTableViewCell", bundle: Bundle.main)
         
         tableView.register(tableCellNib, forCellReuseIdentifier: "SearchCell")
+    }
+    
+    private func setupSeacrhBar(){
+        self.searchBar.delegate = self
     }
     
     private func getCocktails(){
@@ -58,7 +61,6 @@ class SearchViewController: UIViewController {
         
         //Filtre zinciri denenecek
         viewModel.cocktails.subscribe(onNext:{ [weak self] response in
-            print("burda")
             self?.tableView.reloadData()
         },onError : { error in
             //Handle error
@@ -84,7 +86,7 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
-        if indexPaths.contains(where: isLoading(indexPath:)){
+        if indexPaths.contains(where: isLoading(indexPath:)) && viewModel.searchState == false{
             viewModel.getCocktails()
         }
     }
@@ -100,7 +102,6 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
             let cocktail = viewModel.currentData.drinks[indexPath.row]
             cell.drinkTitle.text = cocktail.drinkName
             cell.drinkImage.image = cocktail.image
-            print(cell.drinkImage.image)
             return cell
         }
         return UITableViewCell()
@@ -109,6 +110,14 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
     private func isLoading(indexPath : IndexPath) -> Bool{
         let count = viewModel.currentData.drinks.count
         return indexPath.row >= count - 1
+    }
+    
+}
+
+extension SearchViewController : UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchCocktail(searchText: searchText)
     }
     
 }
