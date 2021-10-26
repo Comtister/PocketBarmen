@@ -62,7 +62,7 @@
     </objects>
     <resources>
         <namedColor name="CategoryCellColor">
-            <color red="0.91660932060721878" green="0.91218125625645929" blue="0.92103738495797827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.91764705882352937" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
