@@ -13,11 +13,23 @@ class DiscoverViewController: UIViewController {
     @IBOutlet var collectionView : UICollectionView!
     @IBOutlet var indicatorView : UIActivityIndicatorView!
     
-    private var viewModel : DiscoverViewModel = DiscoverViewModel()
+    //private var viewModel : DiscoverViewModel = DiscoverViewModel()
+    private var viewModel : DiscoverViewModel
+    private var coordinator : CatalogCoordinator
     private var disposeBag : DisposeBag = DisposeBag()
     
     private var categories : CategoryResponse?
    
+    required init?(coder: NSCoder , viewModel : DiscoverViewModel , coordinator : CatalogCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     

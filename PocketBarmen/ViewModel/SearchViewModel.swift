@@ -180,44 +180,7 @@ class SearchViewModel: NetworkableViewModel {
         searchOperations[operationID] = searchWork
         searchWork.perform()
         
-        /*
-        let request = SearchRequest(searchText: searchText)
-        
-        self._loadingState.onNext(true)
-        NetworkServiceManager.shared.sendRequest(request: request) { [weak self] (result : Result<SearchResponse,NetworkServiceError>) in
-            
-            switch result{
-            case .success(let response) :
-               
-                guard let searchState = self?.searchState else {return}
-                guard let currentData = self?.currentData else {return}
-                
-                if !searchState{
-                    self?.temporaryData = currentData
-                }
-                
-                self?.searchState = true
-                self?.currentData = response
-                
-                self?.fillPhotos {
-                    DispatchQueue.main.async {
-                        self?._cocktails.onNext(currentData)
-                        self?._loadingState.onNext(false)
-                    }
-                }
-            case .failure(let error) :
-                print(error)
-                DispatchQueue.main.async {
-                    guard let currentData = self?.currentData else {return}
-                    self?.temporaryData = currentData
-                    self?.currentData = SearchResponse()
-                    self?._cocktails.onNext(currentData)
-                    self?._loadingState.onNext(false)
-                }
-            }
-            
-        }*/
-        
+       
     }
     
     

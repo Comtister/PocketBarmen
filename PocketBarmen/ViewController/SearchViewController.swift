@@ -14,8 +14,20 @@ class SearchViewController: UIViewController {
     @IBOutlet var searchBar : UISearchBar!
     @IBOutlet var indicator : UIActivityIndicatorView!
     
-    private let viewModel : SearchViewModel = SearchViewModel()
+    //private let viewModel : SearchViewModel = SearchViewModel()
+    private let viewModel : SearchViewModel
     private let disposeBag : DisposeBag = DisposeBag()
+    private let coordinator : SearchCoordinator
+    
+    required init?(coder: NSCoder , viewModel : SearchViewModel , coordinator : SearchCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

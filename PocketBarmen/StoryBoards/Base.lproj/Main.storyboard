@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="57g-z0-9fX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -27,13 +27,13 @@
         <!--Keşfet-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DiscoverViewController" customModule="PocketBarmen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CatalogVC" id="BYZ-38-t0r" customClass="DiscoverViewController" customModule="PocketBarmen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xPs-CJ-Sac">
-                                <rect key="frame" x="0.0" y="148.5" width="414" height="664.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kV1-MA-nHL">
                                     <size key="itemSize" width="128" height="128"/>
@@ -67,22 +67,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3654" y="76"/>
+            <point key="canvasLocation" x="1542" y="114"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="PuD-XP-xG3">
             <objects>
-                <viewController id="rWT-j0-OFP" customClass="SearchViewController" customModule="PocketBarmen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="rWT-j0-OFP" customClass="SearchViewController" customModule="PocketBarmen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cqh-By-ehr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-Eh-uQ7">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-8h-rL8">
-                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Kbp-CD-yNL">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
@@ -112,69 +112,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyV-jD-RyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847.826086956522" y="817.63392857142856"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="i4c-XC-si5">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="57g-z0-9fX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9JE-8Q-rs5">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" name="MainBrass"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="7eb-PO-xBy" kind="relationship" relationship="viewControllers" id="bwm-p8-HZ2"/>
-                        <segue destination="zAd-p3-fW8" kind="relationship" relationship="viewControllers" id="edy-P2-cZJ"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CtB-TT-TTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="76"/>
-        </scene>
-        <!--Catalog-->
-        <scene sceneID="hkh-3E-h2o">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eb-PO-xBy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Catalog" image="CatalogImage" id="vcN-Sq-pdj"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="2GO-75-2Mn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W4O-kA-lrY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEW-Aj-Pt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2757.971014492754" y="75.669642857142847"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5xe-4J-ZI5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zAd-p3-fW8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="L4d-gE-arx"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rVX-uX-yC7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rWT-j0-OFP" kind="relationship" relationship="rootViewController" id="TVd-ss-wRK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ns-F5-X2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="818"/>
+            <point key="canvasLocation" x="2343" y="114"/>
         </scene>
     </scenes>
     <resources>
-        <image name="CatalogImage" width="24" height="24"/>
         <namedColor name="MainBrass">
             <color red="0.70588235294117652" green="0.58823529411764708" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
