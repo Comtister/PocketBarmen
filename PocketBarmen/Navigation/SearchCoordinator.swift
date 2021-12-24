@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SearchCoordinator : Coordinator{
+class SearchCoordinator : NSObject , Coordinator , UINavigationControllerDelegate{
     
     var subCoordinators: [Coordinator] = []
     var navController : UINavigationController
@@ -20,11 +20,33 @@ class SearchCoordinator : Coordinator{
     }
     
     func start() {
+        navController.delegate = self
         let VC = storyboard.instantiateViewController(identifier: "SearchVC", creator: { coder in
             let viewModel = SearchViewModel()
             return SearchViewController(coder: coder, viewModel: viewModel, coordinator: self)
         })
         navController.pushViewController(VC, animated: true)
+    }
+    
+    func changePage(drinkId : String){
+        let child = CocktailDetailCoordinator(navController: navController , drinkId: drinkId)
+        child.parentCoordinator = self
+        subCoordinators.append(child)
+        child.start()
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+        }
+        
+        if navigationController.viewControllers.contains(fromViewController){
+            return
+        }
+        
+        if let detailViewController = fromViewController as? CocktailDetailViewController{
+            removeSubCoordinator(coordinator: detailViewController.coordinator!)
+        }
     }
     
 }

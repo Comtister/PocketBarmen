@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     //private let viewModel : SearchViewModel = SearchViewModel()
     private let viewModel : SearchViewModel
     private let disposeBag : DisposeBag = DisposeBag()
-    private let coordinator : SearchCoordinator
+    private weak var coordinator : SearchCoordinator?
     
     required init?(coder: NSCoder , viewModel : SearchViewModel , coordinator : SearchCoordinator) {
         self.viewModel = viewModel
@@ -117,6 +117,11 @@ extension SearchViewController : UITableViewDataSource , UITableViewDelegate , U
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let drinkId = viewModel.currentData.drinks[indexPath.row].id
+        coordinator?.changePage(drinkId: drinkId)
     }
     
     private func isLoading(indexPath : IndexPath) -> Bool{

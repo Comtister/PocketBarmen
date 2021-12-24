@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313E47160E30B6A3B90153D9 /* Pods_PocketBarmen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A8B43009CBA5D94459CDF5 /* Pods_PocketBarmen.framework */; };
 		522D6A7A26E7A26F00FF8E54 /* Session+GenericRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */; };
 		522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A7E26E7A32900FF8E54 /* NetRequestModel.swift */; };
 		522D6A8226E7BE1B00FF8E54 /* CategoryRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */; };
@@ -14,6 +15,8 @@
 		522D6A9226E7FD5700FF8E54 /* NetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */; };
 		522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */; };
 		522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522D6A9D26E8123D00FF8E54 /* Category.swift */; };
+		5236D9BE273ADCFC0011DBEE /* CocktailDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236D9BD273ADCFC0011DBEE /* CocktailDetailCoordinator.swift */; };
+		5236D9C2273B2CE50011DBEE /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236D9C1273B2CE50011DBEE /* CocktailDetailViewController.swift */; };
 		523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */; };
 		523ED49026E60DAD005FCE0F /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */; };
 		5253E97626EF630F00E64EA0 /* NetworkableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253E97526EF630F00E64EA0 /* NetworkableViewModel.swift */; };
@@ -21,6 +24,8 @@
 		5270020427282E09009BB6A0 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270020327282E09009BB6A0 /* AppTabBarController.swift */; };
 		5270020727282EA5009BB6A0 /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270020627282EA5009BB6A0 /* CatalogCoordinator.swift */; };
 		5270020A27283598009BB6A0 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270020927283598009BB6A0 /* SearchCoordinator.swift */; };
+		5284FF6E27764B25008A76B3 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5284FF6D27764B25008A76B3 /* UIView+Shadow.swift */; };
+		52853A6D27736D4600909450 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52853A6C27736D4600909450 /* MeasureView.swift */; };
 		528B0BC226F0B078002EB15F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528B0BC126F0B078002EB15F /* SearchViewController.swift */; };
 		528B0BC526F0B827002EB15F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528B0BC426F0B827002EB15F /* SearchViewModel.swift */; };
 		528B0BC926F0C083002EB15F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528B0BC726F0C083002EB15F /* SearchTableViewCell.swift */; };
@@ -32,6 +37,8 @@
 		529D5DE226E90C3E00AA4AF7 /* Name+NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */; };
 		52A6563426EA3F1200877D1F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6563326EA3F1200877D1F /* Errors.swift */; };
 		52A6563726EA407D00877D1F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6563626EA407D00877D1F /* Global.swift */; };
+		52A7E6BE2750EFF400FFACD9 /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A7E6BD2750EFF400FFACD9 /* IngredientLabel.swift */; };
+		52B06FBC275F91B700B31B4B /* CocktailDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B06FBB275F91B700B31B4B /* CocktailDetailViewModel.swift */; };
 		52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6926E0EEF700A9394A /* AppDelegate.swift */; };
 		52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */; };
 		52B76C7126E0EEF700A9394A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B76C6F26E0EEF700A9394A /* Main.storyboard */; };
@@ -40,11 +47,25 @@
 		52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FC726E159A500E5E32E /* DiscoverViewController.swift */; };
 		52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */; };
 		52BC9C1F2705D95A00E57B18 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9C1E2705D95A00E57B18 /* SearchRequest.swift */; };
-		AF741957BC278E0D40FEE986 /* Pods_PocketBarmen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */; };
+		52FA38E127314B0100F1E94D /* CocktailDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */; };
+		52FA38E42731600400F1E94D /* CocktailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E32731600400F1E94D /* CocktailDetail.swift */; };
+		52FA38ED2731819B00F1E94D /* PocketBarmenNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38EC2731819B00F1E94D /* PocketBarmenNetworkTests.swift */; };
+		52FA38F72731921600F1E94D /* CocktailDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38F62731921600F1E94D /* CocktailDetailResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		52FA38EF2731819B00F1E94D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B76C5E26E0EEF700A9394A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B76C6526E0EEF700A9394A;
+			remoteInfo = PocketBarmen;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.release.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.release.xcconfig"; sourceTree = "<group>"; };
+		14BE66EC99D7AD1461C6480C /* Pods-PocketBarmen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.debug.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.debug.xcconfig"; sourceTree = "<group>"; };
+		17A8B43009CBA5D94459CDF5 /* Pods_PocketBarmen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketBarmen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+GenericRequest.swift"; sourceTree = "<group>"; };
 		522D6A7E26E7A32900FF8E54 /* NetRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetRequestModel.swift; sourceTree = "<group>"; };
 		522D6A8126E7BE1B00FF8E54 /* CategoryRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRequestModel.swift; sourceTree = "<group>"; };
@@ -52,6 +73,8 @@
 		522D6A9126E7FD5700FF8E54 /* NetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResponseModel.swift; sourceTree = "<group>"; };
 		522D6A9A26E80BB200FF8E54 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		522D6A9D26E8123D00FF8E54 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5236D9BD273ADCFC0011DBEE /* CocktailDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailCoordinator.swift; sourceTree = "<group>"; };
+		5236D9C1273B2CE50011DBEE /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
 		523ED48D26E60DAD005FCE0F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		5253E97526EF630F00E64EA0 /* NetworkableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkableViewModel.swift; sourceTree = "<group>"; };
@@ -59,6 +82,8 @@
 		5270020327282E09009BB6A0 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		5270020627282EA5009BB6A0 /* CatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
 		5270020927283598009BB6A0 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		5284FF6D27764B25008A76B3 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		52853A6C27736D4600909450 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
 		528B0BC126F0B078002EB15F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		528B0BC426F0B827002EB15F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		528B0BC726F0C083002EB15F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +95,8 @@
 		529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Name+NotificationName.swift"; sourceTree = "<group>"; };
 		52A6563326EA3F1200877D1F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		52A6563626EA407D00877D1F /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		52A7E6BD2750EFF400FFACD9 /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
+		52B06FBB275F91B700B31B4B /* CocktailDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewModel.swift; sourceTree = "<group>"; };
 		52B76C6626E0EEF700A9394A /* PocketBarmen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarmen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B76C6926E0EEF700A9394A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B76C6B26E0EEF700A9394A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +107,13 @@
 		52B95FC726E159A500E5E32E /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		52BC9C1E2705D95A00E57B18 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
-		AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketBarmen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.debug.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.debug.xcconfig"; sourceTree = "<group>"; };
+		52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailRequest.swift; sourceTree = "<group>"; };
+		52FA38E32731600400F1E94D /* CocktailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetail.swift; sourceTree = "<group>"; };
+		52FA38EA2731819B00F1E94D /* PocketBarmenNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketBarmenNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FA38EC2731819B00F1E94D /* PocketBarmenNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketBarmenNetworkTests.swift; sourceTree = "<group>"; };
+		52FA38EE2731819B00F1E94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52FA38F62731921600F1E94D /* CocktailDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailResponse.swift; sourceTree = "<group>"; };
+		5822604221ED3C203F088703 /* Pods-PocketBarmen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketBarmen.release.xcconfig"; path = "Target Support Files/Pods-PocketBarmen/Pods-PocketBarmen.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +121,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF741957BC278E0D40FEE986 /* Pods_PocketBarmen.framework in Frameworks */,
+				313E47160E30B6A3B90153D9 /* Pods_PocketBarmen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52FA38E72731819B00F1E94D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +140,7 @@
 			children = (
 				522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */,
 				529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */,
+				5284FF6D27764B25008A76B3 /* UIView+Shadow.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -117,6 +157,9 @@
 				528B0BCF26F0EBB7002EB15F /* SearchResponse.swift */,
 				528B0BD226F0EBF0002EB15F /* CocktailSummary.swift */,
 				52BC9C1E2705D95A00E57B18 /* SearchRequest.swift */,
+				52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */,
+				52FA38E32731600400F1E94D /* CocktailDetail.swift */,
+				52FA38F62731921600F1E94D /* CocktailDetailResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +179,7 @@
 				5270020327282E09009BB6A0 /* AppTabBarController.swift */,
 				5270020627282EA5009BB6A0 /* CatalogCoordinator.swift */,
 				5270020927283598009BB6A0 /* SearchCoordinator.swift */,
+				5236D9BD273ADCFC0011DBEE /* CocktailDetailCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -154,9 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				52B76C6826E0EEF700A9394A /* PocketBarmen */,
+				52FA38EB2731819B00F1E94D /* PocketBarmenNetworkTests */,
 				52B76C6726E0EEF700A9394A /* Products */,
 				65A4800A166A74ACFED8E16D /* Pods */,
-				F634E4C2F7B2B516DC0518D1 /* Frameworks */,
+				A8066C9FACE34B98C674527C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				52B76C6626E0EEF700A9394A /* PocketBarmen.app */,
+				52FA38EA2731819B00F1E94D /* PocketBarmenNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +238,7 @@
 				52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */,
 				5253E97526EF630F00E64EA0 /* NetworkableViewModel.swift */,
 				528B0BC426F0B827002EB15F /* SearchViewModel.swift */,
+				52B06FBB275F91B700B31B4B /* CocktailDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -201,6 +248,7 @@
 			children = (
 				52B95FC726E159A500E5E32E /* DiscoverViewController.swift */,
 				528B0BC126F0B078002EB15F /* SearchViewController.swift */,
+				5236D9C1273B2CE50011DBEE /* CocktailDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -231,23 +279,34 @@
 				523ED48E26E60DAD005FCE0F /* CategoryCollectionViewCell.xib */,
 				528B0BC726F0C083002EB15F /* SearchTableViewCell.swift */,
 				528B0BC826F0C083002EB15F /* SearchTableViewCell.xib */,
+				52A7E6BD2750EFF400FFACD9 /* IngredientLabel.swift */,
+				52853A6C27736D4600909450 /* MeasureView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		52FA38EB2731819B00F1E94D /* PocketBarmenNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				52FA38EC2731819B00F1E94D /* PocketBarmenNetworkTests.swift */,
+				52FA38EE2731819B00F1E94D /* Info.plist */,
+			);
+			path = PocketBarmenNetworkTests;
 			sourceTree = "<group>";
 		};
 		65A4800A166A74ACFED8E16D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */,
-				4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */,
+				14BE66EC99D7AD1461C6480C /* Pods-PocketBarmen.debug.xcconfig */,
+				5822604221ED3C203F088703 /* Pods-PocketBarmen.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F634E4C2F7B2B516DC0518D1 /* Frameworks */ = {
+		A8066C9FACE34B98C674527C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB61353B14B849092D27EC6E /* Pods_PocketBarmen.framework */,
+				17A8B43009CBA5D94459CDF5 /* Pods_PocketBarmen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,22 +318,38 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B76C7A26E0EEF800A9394A /* Build configuration list for PBXNativeTarget "PocketBarmen" */;
 			buildPhases = (
-				51E9E4C3E36AA29E4EB0F335 /* [CP] Check Pods Manifest.lock */,
+				D408A8C56BE06D9903133448 /* [CP] Check Pods Manifest.lock */,
 				52B76C6226E0EEF700A9394A /* Sources */,
 				52B76C6326E0EEF700A9394A /* Frameworks */,
 				52B76C6426E0EEF700A9394A /* Resources */,
-				B78D87BC1DA67EF89F3A21FC /* [CP] Embed Pods Frameworks */,
+				F4F1F58F85AD60CEE3E39567 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PocketBarmen;
-			packageProductDependencies = (
-			);
 			productName = PocketBarmen;
 			productReference = 52B76C6626E0EEF700A9394A /* PocketBarmen.app */;
 			productType = "com.apple.product-type.application";
+		};
+		52FA38E92731819B00F1E94D /* PocketBarmenNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52FA38F12731819B00F1E94D /* Build configuration list for PBXNativeTarget "PocketBarmenNetworkTests" */;
+			buildPhases = (
+				52FA38E62731819B00F1E94D /* Sources */,
+				52FA38E72731819B00F1E94D /* Frameworks */,
+				52FA38E82731819B00F1E94D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52FA38F02731819B00F1E94D /* PBXTargetDependency */,
+			);
+			name = PocketBarmenNetworkTests;
+			productName = PocketBarmenNetworkTests;
+			productReference = 52FA38EA2731819B00F1E94D /* PocketBarmenNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -288,6 +363,10 @@
 					52B76C6526E0EEF700A9394A = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					52FA38E92731819B00F1E94D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 52B76C6526E0EEF700A9394A;
+					};
 				};
 			};
 			buildConfigurationList = 52B76C6126E0EEF700A9394A /* Build configuration list for PBXProject "PocketBarmen" */;
@@ -299,13 +378,12 @@
 				Base,
 			);
 			mainGroup = 52B76C5D26E0EEF700A9394A;
-			packageReferences = (
-			);
 			productRefGroup = 52B76C6726E0EEF700A9394A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				52B76C6526E0EEF700A9394A /* PocketBarmen */,
+				52FA38E92731819B00F1E94D /* PocketBarmenNetworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -323,10 +401,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FA38E82731819B00F1E94D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51E9E4C3E36AA29E4EB0F335 /* [CP] Check Pods Manifest.lock */ = {
+		D408A8C56BE06D9903133448 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,7 +433,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B78D87BC1DA67EF89F3A21FC /* [CP] Embed Pods Frameworks */ = {
+		F4F1F58F85AD60CEE3E39567 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -375,6 +460,7 @@
 				522D6A9226E7FD5700FF8E54 /* NetResponseModel.swift in Sources */,
 				52A6563426EA3F1200877D1F /* Errors.swift in Sources */,
 				52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */,
+				5284FF6E27764B25008A76B3 /* UIView+Shadow.swift in Sources */,
 				523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */,
 				528B0BC526F0B827002EB15F /* SearchViewModel.swift in Sources */,
 				5270020427282E09009BB6A0 /* AppTabBarController.swift in Sources */,
@@ -385,6 +471,7 @@
 				5270020727282EA5009BB6A0 /* CatalogCoordinator.swift in Sources */,
 				522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */,
 				528B0BC926F0C083002EB15F /* SearchTableViewCell.swift in Sources */,
+				52FA38F72731921600F1E94D /* CocktailDetailResponse.swift in Sources */,
 				52A6563726EA407D00877D1F /* Global.swift in Sources */,
 				522D6A8226E7BE1B00FF8E54 /* CategoryRequestModel.swift in Sources */,
 				52BC9C1F2705D95A00E57B18 /* SearchRequest.swift in Sources */,
@@ -392,10 +479,17 @@
 				52B76C6C26E0EEF700A9394A /* SceneDelegate.swift in Sources */,
 				529D5DDE26E9065C00AA4AF7 /* NetworkMonitor.swift in Sources */,
 				528B0BC226F0B078002EB15F /* SearchViewController.swift in Sources */,
+				52A7E6BE2750EFF400FFACD9 /* IngredientLabel.swift in Sources */,
+				52FA38E42731600400F1E94D /* CocktailDetail.swift in Sources */,
 				5270020A27283598009BB6A0 /* SearchCoordinator.swift in Sources */,
+				5236D9C2273B2CE50011DBEE /* CocktailDetailViewController.swift in Sources */,
+				52853A6D27736D4600909450 /* MeasureView.swift in Sources */,
+				52FA38E127314B0100F1E94D /* CocktailDetailRequest.swift in Sources */,
 				522D6A9B26E80BB200FF8E54 /* CategoryResponse.swift in Sources */,
+				52B06FBC275F91B700B31B4B /* CocktailDetailViewModel.swift in Sources */,
 				522D6A7F26E7A32900FF8E54 /* NetRequestModel.swift in Sources */,
 				529D5DE226E90C3E00AA4AF7 /* Name+NotificationName.swift in Sources */,
+				5236D9BE273ADCFC0011DBEE /* CocktailDetailCoordinator.swift in Sources */,
 				528B0BD326F0EBF0002EB15F /* CocktailSummary.swift in Sources */,
 				5270020127282C00009BB6A0 /* Coordinator.swift in Sources */,
 				5253E97626EF630F00E64EA0 /* NetworkableViewModel.swift in Sources */,
@@ -403,7 +497,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52FA38E62731819B00F1E94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52FA38ED2731819B00F1E94D /* PocketBarmenNetworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52FA38F02731819B00F1E94D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B76C6526E0EEF700A9394A /* PocketBarmen */;
+			targetProxy = 52FA38EF2731819B00F1E94D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		52B76C6F26E0EEF700A9394A /* Main.storyboard */ = {
@@ -543,7 +653,7 @@
 		};
 		52B76C7B26E0EEF800A9394A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C691304B80023EF8EC7DF323 /* Pods-PocketBarmen.debug.xcconfig */;
+			baseConfigurationReference = 14BE66EC99D7AD1461C6480C /* Pods-PocketBarmen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -564,7 +674,7 @@
 		};
 		52B76C7C26E0EEF800A9394A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4099A248A39AB7441AB3EF5E /* Pods-PocketBarmen.release.xcconfig */;
+			baseConfigurationReference = 5822604221ED3C203F088703 /* Pods-PocketBarmen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -580,6 +690,46 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		52FA38F22731819B00F1E94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU72QMAMTH;
+				INFOPLIST_FILE = PocketBarmenNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.oguzhanozturk.PocketBarmenNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketBarmen.app/PocketBarmen";
+			};
+			name = Debug;
+		};
+		52FA38F32731819B00F1E94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU72QMAMTH;
+				INFOPLIST_FILE = PocketBarmenNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.oguzhanozturk.PocketBarmenNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketBarmen.app/PocketBarmen";
 			};
 			name = Release;
 		};
@@ -600,6 +750,15 @@
 			buildConfigurations = (
 				52B76C7B26E0EEF800A9394A /* Debug */,
 				52B76C7C26E0EEF800A9394A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52FA38F12731819B00F1E94D /* Build configuration list for PBXNativeTarget "PocketBarmenNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52FA38F22731819B00F1E94D /* Debug */,
+				52FA38F32731819B00F1E94D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
