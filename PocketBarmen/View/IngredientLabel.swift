@@ -25,10 +25,10 @@ class IngredientLabel: UILabel {
     
     private func commonInit(){
         
-        self.layer.borderColor = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        self.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
-        self.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.5)
+        self.backgroundColor = .white
         self.layer.masksToBounds = true
         self.font = UIFont(descriptor: UIFontDescriptor(), size: 17.0)
         self.textAlignment = .center

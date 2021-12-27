@@ -19,6 +19,22 @@ class DiscoverViewController: UIViewController {
     private var disposeBag : DisposeBag = DisposeBag()
     
     private var categories : CategoryResponse?
+    
+    private var images : [UIImage] = {
+        var images : [UIImage] = []
+        images.append(UIImage(named: "Ordinary")!)
+        images.append(UIImage(named: "Cocktail")!)
+        images.append(UIImage(named: "Shake")!)
+        images.append(UIImage(named: "Other")!)
+        images.append(UIImage(named: "Cocoa")!)
+        images.append(UIImage(named: "Shot")!)
+        images.append(UIImage(named: "Tea")!)
+        images.append(UIImage(named: "Homemade")!)
+        images.append(UIImage(named: "Party")!)
+        images.append(UIImage(named: "Beer")!)
+        images.append(UIImage(named: "Soft")!)
+        return images
+    }()
    
     required init?(coder: NSCoder , viewModel : DiscoverViewModel , coordinator : CatalogCoordinator) {
         self.viewModel = viewModel
@@ -136,7 +152,7 @@ extension DiscoverViewController : UICollectionViewDelegate , UICollectionViewDa
             
             if let categories = categories{
                 cell.categoryLbl.text = categories.drinks[indexPath.row].name
-                
+                cell.categoryImg.image = images[indexPath.row]
                 return cell
             }
             

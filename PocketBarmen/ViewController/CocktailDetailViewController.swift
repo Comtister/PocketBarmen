@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import SwiftUI
+import Kingfisher
 
 class CocktailDetailViewController: UIViewController {
 
@@ -16,7 +17,16 @@ class CocktailDetailViewController: UIViewController {
     private let disposeBag : DisposeBag = DisposeBag()
     
     @IBOutlet var drinkTitleLbl : UILabel!
-    @IBOutlet var drinkImageView : UIImageView!
+    @IBOutlet var drinkImageView : UIImageView! = {
+        let drinkImageView = UIImageView()
+        drinkImageView.layer.borderWidth = 2
+        drinkImageView.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
+        drinkImageView.layer.cornerRadius = 10
+        drinkImageView.backgroundColor = .white
+        drinkImageView.makeSTShadow()
+        drinkImageView.layer.masksToBounds = true
+        return drinkImageView
+    }()
     @IBOutlet var sheetLbl : UILabel!
     @IBOutlet var scroolView : UIScrollView!
     @IBOutlet var indicator : UIActivityIndicatorView!
@@ -33,38 +43,58 @@ class CocktailDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        setupViews()
         getDrinkDetail()
         
     }
     
     private func getDrinkDetail(){
-        
+        indicator.startAnimating()
         viewModel.getDrinkDetail().subscribe(onSuccess :{ [weak self] response in
             print(response.name)
+            self?.indicator.stopAnimating()
             self?.scroolView.isHidden = false
             self?.setView(cocktailDetail: response)
+            self?.drinkImageView.kf.indicatorType = .activity
+            self?.drinkImageView.kf.setImage(with : URL(string: "\(response.imageUrl)/preview"))
         },onError: { error in
             print(error)
         }).disposed(by: disposeBag)
         
     }
     
+    private func setupViews(){
+        //MARK: Set DrinkImageView
+        drinkImageView.layer.borderWidth = 2
+        drinkImageView.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
+        drinkImageView.layer.cornerRadius = 10
+        drinkImageView.backgroundColor = .white
+        drinkImageView.makeSTShadow()
+        drinkImageView.layer.masksToBounds = true
+        
+    }
+    
     private func setView(cocktailDetail : CocktailDetail){
+        
+        //MARK: Set Drink Title
+        drinkTitleLbl.text = cocktailDetail.name
+        
+        
         //MARK: Set Ingredient Table
         //MARK: Constants
         let width = self.view.frame.width - 20
-        var heigth = CGFloat(100)
+        let heigth = CGFloat(100)
         var ingredientFrameHeigth : CGFloat = 20
         var satir = 1
         var measureHeigth : CGFloat = 0
         //MARK: Ingredients Locate Variables
-        
+        //Burayı sınıf haline getir
         //MARK: IngredientFrame
         let ingredientFrame = UIView()
         ingredientFrame.backgroundColor = .white
+        ingredientFrame.layer.borderWidth = 2
+        ingredientFrame.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
         ingredientFrame.makeSTShadow()
-        ingredientFrame.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
         ingredientFrame.layer.cornerRadius = 10
         //ingredientFrame.layer.masksToBounds = true
         ingredientFrame.isUserInteractionEnabled = false
@@ -178,11 +208,18 @@ class CocktailDetailViewController: UIViewController {
         
         //MARK: Set Ingredient Measure List
         let measuresStackView = UIStackView()
+        measuresStackView.backgroundColor = .white
         measuresStackView.isUserInteractionEnabled = false
         measuresStackView.axis = .vertical
         measuresStackView.distribution = .fillEqually
         measuresStackView.translatesAutoresizingMaskIntoConstraints = false
         measuresStackView.spacing = 5
+        measuresStackView.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        measuresStackView.isLayoutMarginsRelativeArrangement = true
+        measuresStackView.makeSTShadow()
+        measuresStackView.layer.borderWidth = 2
+        measuresStackView.layer.cornerRadius = 10
+        measuresStackView.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
         self.view.addSubview(measuresStackView)
         measuresStackView.topAnchor.constraint(equalTo: ingredientLbl.bottomAnchor, constant: 10).isActive = true
         measuresStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
@@ -202,6 +239,7 @@ class CocktailDetailViewController: UIViewController {
             measureHeigth += 30
             measuresStackView.addArrangedSubview(measure)
         }
+        
         measureHeigthConstraint.constant = measureHeigth
         measureHeigthConstraint.isActive = true
         
@@ -220,7 +258,7 @@ class CocktailDetailViewController: UIViewController {
         preparationTextview.topAnchor.constraint(equalTo: preparationTitle.bottomAnchor, constant: 10).isActive = true
         preparationTextview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
         preparationTextview.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-    
+        
         view.layoutIfNeeded()
         let layoutHeigth = preparationTextview.frame.maxY - view.frame.minY
         

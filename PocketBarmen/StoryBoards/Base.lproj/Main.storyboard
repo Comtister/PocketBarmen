@@ -25,19 +25,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-55-mdX">
-                                                <rect key="frame" x="183" y="20" width="48" height="24"/>
+                                                <rect key="frame" x="183" y="10" width="48" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="faT-Sd-bdI">
-                                                <rect key="frame" x="135" y="74" width="144" height="144"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="faT-Sd-bdI">
+                                                <rect key="frame" x="135" y="44" width="144" height="144"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="144" id="A19-Va-gEV"/>
                                                     <constraint firstAttribute="height" constant="144" id="PDT-hN-hYF"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sheet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7g-XT-yu6">
-                                                <rect key="frame" x="181.5" y="238" width="51.5" height="24"/>
+                                                <rect key="frame" x="181.5" y="198" width="51.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -45,15 +46,13 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="S7g-XT-yu6" firstAttribute="top" secondItem="faT-Sd-bdI" secondAttribute="bottom" constant="20" id="Gia-L3-ZtM"/>
-                                            <constraint firstItem="faT-Sd-bdI" firstAttribute="leading" secondItem="Fct-2N-bao" secondAttribute="leading" constant="135" id="Wvd-gZ-5g8"/>
-                                            <constraint firstItem="faT-Sd-bdI" firstAttribute="top" secondItem="8MR-55-mdX" secondAttribute="bottom" constant="30" id="dWQ-Ob-fhX"/>
+                                            <constraint firstItem="S7g-XT-yu6" firstAttribute="top" secondItem="faT-Sd-bdI" secondAttribute="bottom" constant="10" id="Gia-L3-ZtM"/>
+                                            <constraint firstItem="faT-Sd-bdI" firstAttribute="top" secondItem="8MR-55-mdX" secondAttribute="bottom" constant="10" id="dWQ-Ob-fhX"/>
                                             <constraint firstItem="8MR-55-mdX" firstAttribute="centerX" secondItem="Fct-2N-bao" secondAttribute="centerX" id="dkX-nn-6KJ"/>
                                             <constraint firstItem="faT-Sd-bdI" firstAttribute="centerX" secondItem="Fct-2N-bao" secondAttribute="centerX" id="gqL-bw-B4e"/>
                                             <constraint firstItem="S7g-XT-yu6" firstAttribute="centerX" secondItem="Fct-2N-bao" secondAttribute="centerX" id="jJj-Oa-tWG"/>
-                                            <constraint firstAttribute="trailing" secondItem="faT-Sd-bdI" secondAttribute="trailing" constant="135" id="uht-bG-0qE"/>
                                             <constraint firstAttribute="height" priority="250" constant="1000" id="vll-6g-iOe"/>
-                                            <constraint firstItem="8MR-55-mdX" firstAttribute="top" secondItem="Fct-2N-bao" secondAttribute="top" constant="20" id="xgz-hW-PTE"/>
+                                            <constraint firstItem="8MR-55-mdX" firstAttribute="top" secondItem="Fct-2N-bao" secondAttribute="top" constant="10" id="xgz-hW-PTE"/>
                                         </constraints>
                                     </view>
                                 </subviews>

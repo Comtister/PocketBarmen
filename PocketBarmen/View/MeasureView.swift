@@ -29,7 +29,7 @@ class MeasureView: UIView {
     
     private func setupView(){
         self.layer.borderWidth = 2
-        self.layer.borderColor = CGColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        self.layer.borderColor = UIColor(named: "MainBrass")?.cgColor
         self.layer.cornerRadius = 10
         self.backgroundColor = .white
         self.addSubview(label)

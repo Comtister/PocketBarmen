@@ -14,10 +14,14 @@ class AppTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.tintColor = UIColor(named: "MainBrass")
         catalogCoordinator.start()
         searchCoordinator.start()
         viewControllers = [catalogCoordinator.navController , searchCoordinator.navController]
-       
+        let catalogItem = UITabBarItem(title: "Catalog", image: UIImage(named: "CatalogImage"), tag: 0)
+        let searchItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        viewControllers![0].tabBarItem = catalogItem
+        viewControllers![1].tabBarItem = searchItem
     }
     
 
