@@ -47,6 +47,9 @@
 		52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FC726E159A500E5E32E /* DiscoverViewController.swift */; };
 		52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */; };
 		52BC9C1F2705D95A00E57B18 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC9C1E2705D95A00E57B18 /* SearchRequest.swift */; };
+		52C359E227BD43ED003AE0A0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E127BD43ED003AE0A0 /* FavoritesViewController.swift */; };
+		52C359E427BD4483003AE0A0 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E327BD4483003AE0A0 /* FavoritesViewModel.swift */; };
+		52C359E627BD44E0003AE0A0 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E527BD44E0003AE0A0 /* FavoritesCoordinator.swift */; };
 		52FA38E127314B0100F1E94D /* CocktailDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */; };
 		52FA38E42731600400F1E94D /* CocktailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E32731600400F1E94D /* CocktailDetail.swift */; };
 		52FA38ED2731819B00F1E94D /* PocketBarmenNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38EC2731819B00F1E94D /* PocketBarmenNetworkTests.swift */; };
@@ -107,6 +110,9 @@
 		52B95FC726E159A500E5E32E /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		52B95FCA26E159D900E5E32E /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		52BC9C1E2705D95A00E57B18 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		52C359E127BD43ED003AE0A0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		52C359E327BD4483003AE0A0 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		52C359E527BD44E0003AE0A0 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailRequest.swift; sourceTree = "<group>"; };
 		52FA38E32731600400F1E94D /* CocktailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetail.swift; sourceTree = "<group>"; };
 		52FA38EA2731819B00F1E94D /* PocketBarmenNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketBarmenNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +186,7 @@
 				5270020627282EA5009BB6A0 /* CatalogCoordinator.swift */,
 				5270020927283598009BB6A0 /* SearchCoordinator.swift */,
 				5236D9BD273ADCFC0011DBEE /* CocktailDetailCoordinator.swift */,
+				52C359E527BD44E0003AE0A0 /* FavoritesCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				5253E97526EF630F00E64EA0 /* NetworkableViewModel.swift */,
 				528B0BC426F0B827002EB15F /* SearchViewModel.swift */,
 				52B06FBB275F91B700B31B4B /* CocktailDetailViewModel.swift */,
+				52C359E327BD4483003AE0A0 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				52B95FC726E159A500E5E32E /* DiscoverViewController.swift */,
 				528B0BC126F0B078002EB15F /* SearchViewController.swift */,
 				5236D9C1273B2CE50011DBEE /* CocktailDetailViewController.swift */,
+				52C359E127BD43ED003AE0A0 /* FavoritesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -461,13 +470,16 @@
 				52A6563426EA3F1200877D1F /* Errors.swift in Sources */,
 				52B95FC826E159A500E5E32E /* DiscoverViewController.swift in Sources */,
 				5284FF6E27764B25008A76B3 /* UIView+Shadow.swift in Sources */,
+				52C359E627BD44E0003AE0A0 /* FavoritesCoordinator.swift in Sources */,
 				523ED48F26E60DAD005FCE0F /* CategoryCollectionViewCell.swift in Sources */,
 				528B0BC526F0B827002EB15F /* SearchViewModel.swift in Sources */,
 				5270020427282E09009BB6A0 /* AppTabBarController.swift in Sources */,
 				52B95FCB26E159D900E5E32E /* DiscoverViewModel.swift in Sources */,
 				528B0BD026F0EBB7002EB15F /* SearchResponse.swift in Sources */,
 				52B76C6A26E0EEF700A9394A /* AppDelegate.swift in Sources */,
+				52C359E227BD43ED003AE0A0 /* FavoritesViewController.swift in Sources */,
 				522D6A7A26E7A26F00FF8E54 /* Session+GenericRequest.swift in Sources */,
+				52C359E427BD4483003AE0A0 /* FavoritesViewModel.swift in Sources */,
 				5270020727282EA5009BB6A0 /* CatalogCoordinator.swift in Sources */,
 				522D6A8626E7F62900FF8E54 /* NetworkServiceManager.swift in Sources */,
 				528B0BC926F0C083002EB15F /* SearchTableViewCell.swift in Sources */,

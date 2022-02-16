@@ -101,6 +101,15 @@
                     <view key="view" contentMode="scaleToFill" id="PVW-3t-ZAd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eq8-tX-CAL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="Xm7-5b-kcZ"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FXJ-EU-O1U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -108,6 +117,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8T0-Vm-wwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4081.1594202898555" y="113.83928571428571"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="Amg-Rx-bxu">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesVC" id="iEh-Xb-8WW" customClass="FavoritesViewController" customModule="PocketBarmen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mBT-ia-Cog">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ve0-h2-Phh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OxJ-xj-XoS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5052" y="114"/>
         </scene>
         <!--Keşfet-->
         <scene sceneID="tne-QT-ifu">

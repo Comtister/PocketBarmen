@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-class CocktailDetail : Codable{
+class CocktailDetail : Object , Codable{
     
-    var id : String
-    var name : String
-    var category : String
-    var instructions : String
-    var imageUrl : URL
-    var ingredients : [String] = []
-    var measures : [String] = []
+    @Persisted var id : String
+    @Persisted var name : String
+    @Persisted var category : String
+    @Persisted var instructions : String
+    @Persisted var imageUrl : String
+    @Persisted var ingredients : List<String>
+    @Persisted var measures : List<String>
     
     enum CodingKeys : String , CodingKey{
        case id = "idDrink" , name = "strDrink" , category = "strCategory" , instructions = "strInstructions" , imageUrl = "strDrinkThumb"
@@ -31,32 +32,38 @@ class CocktailDetail : Codable{
              strMeasure11 ,strMeasure12 ,strMeasure13 ,strMeasure14 ,strMeasure15
     }
     
+    override init() {
+        super.init()
+    }
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
         self.category = try container.decode(String.self, forKey: .category)
         self.instructions = try container.decode(String.self, forKey: .instructions)
-        self.imageUrl = try container.decode(URL.self, forKey: .imageUrl)
+        self.imageUrl = try container.decode(String.self, forKey: .imageUrl)
         
         let ingredientContainer = try decoder.container(keyedBy: IngredientsCodes.self)
+        let tempIngredients = List<String>()
+        let tempMeasures = List<String>()
         
         for i in 0...14{
             let ingredient = try? ingredientContainer.decode(String.self, forKey: IngredientsCodes.allCases[i])
             if let ingredient = ingredient{
-                self.ingredients.append(ingredient)
+                tempIngredients.append(ingredient)
             }
         }
-        
+        self.ingredients = tempIngredients
         let measureContainer = try decoder.container(keyedBy: MeasuresCodes.self)
         
         for i in 0...14{
             let measure = try? measureContainer.decode(String.self, forKey: MeasuresCodes.allCases[i])            
             if let measure = measure{
-                self.measures.append(measure)
+                tempMeasures.append(measure)
             }
         }
-        
+        self.measures = tempMeasures
     }
     
 }

@@ -31,6 +31,8 @@ class CocktailDetailViewController: UIViewController {
     @IBOutlet var scroolView : UIScrollView!
     @IBOutlet var indicator : UIActivityIndicatorView!
     
+    var barButtonItem : UIBarButtonItem!
+    
     required init?(coder: NSCoder , coordinator : CocktailDetailCoordinator , viewModel : CocktailDetailViewModel) {
         self.coordinator = coordinator
         self.viewModel = viewModel
@@ -43,6 +45,7 @@ class CocktailDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViews()
         getDrinkDetail()
         
@@ -72,6 +75,14 @@ class CocktailDetailViewController: UIViewController {
         drinkImageView.makeSTShadow()
         drinkImageView.layer.masksToBounds = true
         
+        //MARK: Set Toolbar Save Button
+        barButtonItem = UIBarButtonItem(image: UIImage(named: "starw"), style: .plain, target: self, action: #selector(saveAction))
+        barButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    @objc func saveAction(){
+        print("action")
     }
     
     private func setView(cocktailDetail : CocktailDetail){
