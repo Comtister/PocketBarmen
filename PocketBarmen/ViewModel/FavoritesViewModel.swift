@@ -10,7 +10,7 @@ import Foundation
 class FavoritesViewModel{
     
     init(){
-        
+        DatabaseManager.shared
     }
     
 }

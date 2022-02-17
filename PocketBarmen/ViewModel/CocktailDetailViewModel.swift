@@ -11,6 +11,7 @@ import RxSwift
 class CocktailDetailViewModel{
     
     private let drinkID : String
+    private var cocktailSummary : CocktailSummary?
     
     init(drinkID : String){
         self.drinkID = drinkID
@@ -29,6 +30,7 @@ class CocktailDetailViewModel{
                 case .success(let response) :
                     DispatchQueue.main.async {
                         single(.success(response.drinks[0]))
+                        
                     }
                 case .failure(let error) :
                     DispatchQueue.main.async {
@@ -43,5 +45,8 @@ class CocktailDetailViewModel{
         
     }
     
+    func saveDrink(){
+        
+    }
     
 }

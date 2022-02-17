@@ -7,17 +7,19 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-struct CocktailSummary : Codable {
+class CocktailSummary : Object , Codable {
     
-    var id : String
-    var drinkName : String
-    var type : String
-    var imageUrl : URL
+    @Persisted(primaryKey: true) var id : String
+    @Persisted var drinkName : String
+    @Persisted var imageUrl : String
+    @Persisted var type : String
     var imageDownloadUrl : URL{
         get{
-            let url = imageUrl.appendingPathComponent("/preview")
-            return url
+            let url = URL(string: imageUrl)!
+            let downloadUrl = url.appendingPathComponent("/preview")
+            return downloadUrl
         }
     }
     var imageDownloadingState : Bool = false
@@ -37,5 +39,24 @@ struct CocktailSummary : Codable {
         case type = "strAlcoholic"
         case imageUrl = "strDrinkThumb"
     }
+        /*
+    init(cocktailDetail : CocktailDetail){
+        super.init()
+        self.id = cocktailDetail.id
+        self.drinkName = cocktailDetail.name
+        self.imageUrl = cocktailDetail.imageUrl
+        self.type = cocktailDetail.category
         
+    }*/
+    
+    convenience init(cocktailDetail : CocktailDetail) {
+        self.init()
+        self.id = cocktailDetail.id
+        self.drinkName = cocktailDetail.name
+        self.imageUrl = cocktailDetail.imageUrl
+        self.type = cocktailDetail.category
+    }
+    
+    
+    
 }
