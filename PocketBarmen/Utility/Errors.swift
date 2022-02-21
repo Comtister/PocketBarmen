@@ -11,4 +11,6 @@ enum NetworkServiceError : Error{
     case NetworkError , ServerError , DataNotValid , DataParsingError
 }
 
-
+enum DatabaseError : Error{
+    case DataExists , WriteError , ReadError
+}

@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class CocktailSummary : Object , Codable {
+class CocktailSummary : Object , Codable , NSCopying {
+   
+    
+    
     
     @Persisted(primaryKey: true) var id : String
     @Persisted var drinkName : String
@@ -58,5 +61,16 @@ class CocktailSummary : Object , Codable {
     }
     
     
+    convenience init(id : String , drinkName : String , imageUrl : String , type : String) {
+        self.init()
+        self.id = id
+        self.drinkName = drinkName
+        self.imageUrl = imageUrl
+        self.type = type
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        return CocktailSummary(id: id, drinkName: drinkName, imageUrl: imageUrl, type: type)
+    }
     
 }

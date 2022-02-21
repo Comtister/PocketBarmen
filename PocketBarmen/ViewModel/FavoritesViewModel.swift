@@ -9,8 +9,7 @@ import Foundation
 
 class FavoritesViewModel{
     
-    init(){
-        DatabaseManager.shared
-    }
+    private let databaseManager = DatabaseManager.shared
+    
     
 }

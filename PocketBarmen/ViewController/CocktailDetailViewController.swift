@@ -79,10 +79,26 @@ class CocktailDetailViewController: UIViewController {
         barButtonItem = UIBarButtonItem(image: UIImage(named: "starw"), style: .plain, target: self, action: #selector(saveAction))
         barButtonItem.tintColor = .black
         navigationItem.rightBarButtonItem = barButtonItem
+        
+        if viewModel.isSaved(){
+            barButtonItem.image = UIImage(named: "starb")
+        }
+        
     }
     
     @objc func saveAction(){
-        print("action")
+        
+        viewModel.saveOrDeleteDrink().subscribe(onSuccess:{ [weak self] state in
+            switch state{
+            case .Deleted :
+                self?.barButtonItem.image = UIImage(named: "starw")
+            case .Saved :
+                self?.barButtonItem.image = UIImage(named: "starb")
+            }
+        },onFailure:{ error in
+            print("SSWW \(error)")
+        }).disposed(by: disposeBag)
+        
     }
     
     private func setView(cocktailDetail : CocktailDetail){

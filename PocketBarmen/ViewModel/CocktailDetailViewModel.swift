@@ -10,8 +10,13 @@ import RxSwift
 
 class CocktailDetailViewModel{
     
+    enum CocktailState{
+        case Saved , Deleted
+    }
+    
     private let drinkID : String
     private var cocktailSummary : CocktailSummary?
+    private let databaseManager = DatabaseManager.shared
     
     init(drinkID : String){
         self.drinkID = drinkID
@@ -30,7 +35,7 @@ class CocktailDetailViewModel{
                 case .success(let response) :
                     DispatchQueue.main.async {
                         single(.success(response.drinks[0]))
-                        
+                        self?.cocktailSummary = CocktailSummary(cocktailDetail: response.drinks[0])
                     }
                 case .failure(let error) :
                     DispatchQueue.main.async {
@@ -45,8 +50,30 @@ class CocktailDetailViewModel{
         
     }
     
-    func saveDrink(){
+    func saveOrDeleteDrink() -> Single<CocktailState>{
         
+        return Single.create { single in
+            let disposable = Disposables.create()
+            
+            if self.isSaved(){
+                self.databaseManager.deleteCocktail(cocktail: self.cocktailSummary!)
+                single(.success(.Deleted))
+            }else{
+                self.databaseManager.saveCocktail(cocktail: self.cocktailSummary!) { error in
+                    if let error = error {
+                        single(.failure(error))
+                    }else{
+                        single(.success(.Saved))
+                    }
+                }
+            }
+        return disposable
+        }
+    
+    }
+    
+    func isSaved() -> Bool{
+        return self.databaseManager.getCocktail(id: self.drinkID) != nil ? true : false
     }
     
 }

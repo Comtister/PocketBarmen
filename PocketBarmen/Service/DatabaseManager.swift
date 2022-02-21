@@ -18,6 +18,7 @@ class DatabaseManager{
         print(realm.configuration.fileURL)
     }
     
+    
     func getFavoriteCocktails() -> [CocktailSummary]{
         let cocktails = realm.objects(CocktailSummary.self)
         let index = IndexSet(integersIn: cocktails.startIndex...cocktails.endIndex)
@@ -26,15 +27,42 @@ class DatabaseManager{
     }
     
     func getCocktail(id : String) -> CocktailSummary?{
-        let cocktail = realm.object(ofType: CocktailSummary.self, forPrimaryKey: id)
-        return cocktail
+        return realm.object(ofType: CocktailSummary.self, forPrimaryKey: id)
     }
     
-    func saveCocktail(cocktail : CocktailSummary , complete : @escaping () -> Void){
-        try! realm.write({
-            realm.add(cocktail)
-            complete()
-        })
+    func saveCocktail(cocktail : CocktailSummary , complete : @escaping (DatabaseError?) -> Void){
+        
+        if let _ = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
+            complete(DatabaseError.DataExists)
+        }else{
+            
+            do{
+                try realm.write({
+                    print(Thread.current.name)
+                    let newCocktail = cocktail.copy() as! CocktailSummary
+                    realm.add(newCocktail)
+                    complete(nil)
+                })
+            }catch{
+                //Handle Error
+                complete(DatabaseError.WriteError)
+            }
+            
+        }
+        
+    }
+    
+    func deleteCocktail(cocktail : CocktailSummary){
+        do{
+            try realm.write({
+                if let object = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
+                    realm.delete(object)
+                }
+            })
+        }catch{
+            print(error)
+        }
+       
     }
     
 }
