@@ -11,18 +11,20 @@ import RealmSwift
 class DatabaseManager{
     
     static let shared : DatabaseManager = DatabaseManager()
-    private let realm : Realm
+    private var realm : Realm
+    
+    private let realmQueue = DispatchQueue.init(label: "RealmQueue" , qos: .userInitiated)
     
     private init(){
         self.realm = try! Realm()
         print(realm.configuration.fileURL)
     }
     
-    
     func getFavoriteCocktails() -> [CocktailSummary]{
         let cocktails = realm.objects(CocktailSummary.self)
         let index = IndexSet(integersIn: cocktails.startIndex...cocktails.endIndex)
         let result = cocktails.objects(at: index)
+        
         return result
     }
     
@@ -32,20 +34,27 @@ class DatabaseManager{
     
     func saveCocktail(cocktail : CocktailSummary , complete : @escaping (DatabaseError?) -> Void){
         
-        if let _ = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
-            complete(DatabaseError.DataExists)
-        }else{
+        
+        realmQueue.async {
+            
+            let realm = try! Realm()
+            
+            if let _ = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
+                DispatchQueue.main.async{ complete(DatabaseError.DataExists) }
+                return
+            }
             
             do{
                 try realm.write({
-                    print(Thread.current.name)
-                    let newCocktail = cocktail.copy() as! CocktailSummary
-                    realm.add(newCocktail)
-                    complete(nil)
+                    guard let cocktailCopy = cocktail.copy() as? CocktailSummary else{
+                        DispatchQueue.main.async{ complete(DatabaseError.WriteError) }
+                        return
+                    }
+                    realm.add(cocktailCopy)
+                    DispatchQueue.main.async{ complete(nil) }
                 })
             }catch{
-                //Handle Error
-                complete(DatabaseError.WriteError)
+                DispatchQueue.main.async {  complete(DatabaseError.WriteError) }
             }
             
         }
