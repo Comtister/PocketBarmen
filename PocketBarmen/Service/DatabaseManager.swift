@@ -20,12 +20,20 @@ class DatabaseManager{
         print(realm.configuration.fileURL)
     }
     
-    func getFavoriteCocktails() -> [CocktailSummary]{
-        let cocktails = realm.objects(CocktailSummary.self)
-        let index = IndexSet(integersIn: cocktails.startIndex...cocktails.endIndex)
-        let result = cocktails.objects(at: index)
+    func getFavoriteCocktails(completion : @escaping (Results<CocktailSummary>?) -> Void){
         
-        return result
+        realmQueue.async {
+            let realm = try! Realm()
+            
+            @ThreadSafe var cocktails = realm.objects(CocktailSummary.self)
+           
+            //let index = IndexSet(integersIn: cocktails.startIndex...cocktails.endIndex - 1)
+            //@ThreadSafe var result = cocktails.objects(at: index)
+            
+            DispatchQueue.main.async{ completion(cocktails) }
+            
+        }
+        
     }
     
     func getCocktail(id : String) -> CocktailSummary?{
@@ -33,7 +41,6 @@ class DatabaseManager{
     }
     
     func saveCocktail(cocktail : CocktailSummary , complete : @escaping (DatabaseError?) -> Void){
-        
         
         realmQueue.async {
             
@@ -61,17 +68,22 @@ class DatabaseManager{
         
     }
     
-    func deleteCocktail(cocktail : CocktailSummary){
-        do{
-            try realm.write({
-                if let object = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
-                    realm.delete(object)
-                }
-            })
-        }catch{
-            print(error)
+    func deleteCocktail(cocktail : CocktailSummary , completion : @escaping (DatabaseError?) -> Void){
+        
+        realmQueue.async {
+            let realm = try! Realm()
+            do{
+                try realm.write({
+                    if let object = realm.object(ofType: CocktailSummary.self, forPrimaryKey: cocktail.id){
+                        realm.delete(object)
+                        DispatchQueue.main.async{ completion(nil) }
+                    }
+                })
+            }catch{
+                completion(DatabaseError.DeleteError)
+            }
         }
-       
+        
     }
     
 }

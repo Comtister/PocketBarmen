@@ -56,15 +56,18 @@ class CocktailDetailViewModel{
             let disposable = Disposables.create()
             
             if self.isSaved(){
-                self.databaseManager.deleteCocktail(cocktail: self.cocktailSummary!)
-                single(.success(.Deleted))
+                self.databaseManager.deleteCocktail(cocktail: self.cocktailSummary!, completion: { error in
+                    guard let error = error else {
+                        return single(.success(.Deleted))
+                    }
+                    single(.failure(error))
+                })
             }else{
                 self.databaseManager.saveCocktail(cocktail: self.cocktailSummary!) { error in
-                    if let error = error {
-                        single(.failure(error))
-                    }else{
-                        single(.success(.Saved))
+                    guard let error = error else {
+                        return single(.success(.Saved))
                     }
+                    single(.failure(error))
                 }
             }
         return disposable

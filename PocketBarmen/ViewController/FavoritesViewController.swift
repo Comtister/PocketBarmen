@@ -6,13 +6,21 @@
 //
 
 import UIKit
+import RxSwift
+import Kingfisher
 
 class FavoritesViewController: UIViewController {
 
-    private let viewModel : FavoritesViewModel
+    @IBOutlet var tableView : UITableView!
     
-    required init?(coder: NSCoder , viewModel : FavoritesViewModel) {
+    private let viewModel : FavoritesViewModel
+    private let coordinator : FavoritesCoordinator
+    
+    private let disposeBag = DisposeBag()
+    
+    required init?(coder: NSCoder , coordinator : FavoritesCoordinator , viewModel : FavoritesViewModel) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(coder: coder)
     }
     
@@ -22,9 +30,68 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initViews()
+        getDatas()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getDatas()
+    }
+    
+    private func initViews(){
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 80
+        let cellNib = UINib(nibName: "SearchTableViewCell", bundle: Bundle.main)
+        tableView.register(cellNib, forCellReuseIdentifier: "SearchCell")
         
     }
     
+    private func getDatas(){
+        
+        viewModel.getDatas().subscribe(onSuccess : { [weak self] state in
+            self?.tableView.reloadData()
+        }, onFailure:{ error in
+            //Handle Error
+            print(error)
+        }).disposed(by: disposeBag)
+        
+    }
 
 }
+
+extension FavoritesViewController : UITableViewDelegate , UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cocktails?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchTableViewCell{
+            
+            guard let cocktail = viewModel.cocktails?[indexPath.row] else{
+                return UITableViewCell()
+            }
+            
+            cell.drinkTitle.text = cocktail.drinkName
+            cell.drinkDesc.text = cocktail.type
+            cell.drinkImage.kf.indicatorType = .activity
+            cell.drinkImage.kf.setImage(with: cocktail.imageDownloadUrl)
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let drinkId = viewModel.cocktails?[indexPath.row].id else {
+            return
+        }
+        coordinator.gotoDetail(drinkId: drinkId)
+    }
+    
+}
+

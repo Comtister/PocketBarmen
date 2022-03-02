@@ -23,12 +23,18 @@ class FavoritesCoordinator : NSObject , Coordinator , UINavigationControllerDele
         
         let VC = storyboard.instantiateViewController(identifier: "FavoritesVC") { coder in
             let vm = FavoritesViewModel()
-            let vc = FavoritesViewController(coder: coder, viewModel: vm)
+            let vc = FavoritesViewController(coder: coder,coordinator: self, viewModel: vm)
             return vc
         }
         navController.pushViewController(VC, animated: true)
     }
     
+    func gotoDetail(drinkId : String){
+        let child = CocktailDetailCoordinator(navController: navController, drinkId: drinkId)
+        child.parentCoordinator = self
+        self.appendSubCoordinator(coordinator: child)
+        child.start()
+    }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {

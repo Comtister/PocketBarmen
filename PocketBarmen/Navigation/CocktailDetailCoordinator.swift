@@ -11,7 +11,7 @@ import UIKit
 class CocktailDetailCoordinator : Coordinator{
     
     var subCoordinators: [Coordinator] = []
-    weak var parentCoordinator : SearchCoordinator?
+    weak var parentCoordinator : Coordinator?
     private var navController : UINavigationController
     var storyboard : UIStoryboard
     private let drinkId : String

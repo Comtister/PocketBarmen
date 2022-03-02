@@ -50,6 +50,7 @@
 		52C359E227BD43ED003AE0A0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E127BD43ED003AE0A0 /* FavoritesViewController.swift */; };
 		52C359E427BD4483003AE0A0 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E327BD4483003AE0A0 /* FavoritesViewModel.swift */; };
 		52C359E627BD44E0003AE0A0 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C359E527BD44E0003AE0A0 /* FavoritesCoordinator.swift */; };
+		52E856E727CFC0040069855B /* ArrayExtension+ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E856E627CFC0040069855B /* ArrayExtension+ThreadSafeArray.swift */; };
 		52E8737027BEAC01007813EC /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8736F27BEAC01007813EC /* DatabaseManager.swift */; };
 		52FA38E127314B0100F1E94D /* CocktailDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */; };
 		52FA38E42731600400F1E94D /* CocktailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA38E32731600400F1E94D /* CocktailDetail.swift */; };
@@ -114,6 +115,7 @@
 		52C359E127BD43ED003AE0A0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		52C359E327BD4483003AE0A0 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		52C359E527BD44E0003AE0A0 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		52E856E627CFC0040069855B /* ArrayExtension+ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayExtension+ThreadSafeArray.swift"; sourceTree = "<group>"; };
 		52E8736F27BEAC01007813EC /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		52FA38E027314B0100F1E94D /* CocktailDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailRequest.swift; sourceTree = "<group>"; };
 		52FA38E32731600400F1E94D /* CocktailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetail.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				522D6A7926E7A26F00FF8E54 /* Session+GenericRequest.swift */,
 				529D5DE126E90C3E00AA4AF7 /* Name+NotificationName.swift */,
 				5284FF6D27764B25008A76B3 /* UIView+Shadow.swift */,
+				52E856E627CFC0040069855B /* ArrayExtension+ThreadSafeArray.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				5270020127282C00009BB6A0 /* Coordinator.swift in Sources */,
 				52E8737027BEAC01007813EC /* DatabaseManager.swift in Sources */,
 				5253E97626EF630F00E64EA0 /* NetworkableViewModel.swift in Sources */,
+				52E856E727CFC0040069855B /* ArrayExtension+ThreadSafeArray.swift in Sources */,
 				522D6A9E26E8123D00FF8E54 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
